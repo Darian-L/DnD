@@ -1,0 +1,24 @@
+.headerBackground {
+    text-align: center;
+    background-color: #e8e9ff;
+    border-bottom-color: grey;
+    border-bottom-style: dashed;
+    padding-bottom: 3%;
+    padding-top: 3%;
+}
+// TODO figure out scaling and where bar between div and content comes from
+.topBar {
+    position: fixed;
+    width: 100%;
+    background-color: #e8e9ff;
+    padding-top: 1%;
+    border-bottom-color: grey;
+    border-bottom-style: dashed;
+    padding-bottom: 1%;
+    margin-bottom: 0%;
+}
+
+.placeholder {
+    height: 200%;
+    background: grey;
+}

@@ -1,0 +1,247 @@
+<div class="topBar">
+  <ion-row nowrap justify-content-around>
+    <ion-col>
+      <button ion-button round (click)="roll(4)" class="buttonWidth">
+        4
+      </button>
+    </ion-col>
+
+    <ion-col>
+      <button ion-button round (click)="roll(6)" class="buttonWidth">
+        6
+      </button>
+    </ion-col>
+
+    <ion-col>
+      <button ion-button round (click)="roll(8)" class="buttonWidth">
+        8
+      </button>
+    </ion-col>
+
+    <ion-col>
+      <button ion-button round (click)="roll(10)" class="buttonWidth">
+        10
+      </button>
+    </ion-col>
+
+    <ion-col>
+      <button ion-button round (click)="roll(20)" class="buttonWidth">
+        20
+      </button>
+    </ion-col>
+  </ion-row>
+</div>
+
+<ion-content padding class="content">
+  <h3>
+    Name:
+  </h3>
+  <hr />
+  <ion-row>
+    <ion-col>
+      Race:
+    </ion-col>
+    <ion-col>
+      Class:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Level:
+    </ion-col>
+    <ion-col>
+      Exp:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Size:
+    </ion-col>
+    <ion-col>
+      Background:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Alignment:
+    </ion-col>
+  </ion-row>
+  <hr>
+
+  <ion-row>
+    <ion-col>
+      HP: /
+      <!-- TODO: Current/Max -->
+    </ion-col>
+    <ion-col>
+      HitDice:
+      <!-- TODO: Additional function that combines the level and the HitDice -->
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      AC:
+    </ion-col>
+    <ion-col>
+      Initiative:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Proficiency Bonus:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Speed:
+    </ion-col>
+    <ion-col *ngIf>
+      Fly:
+    </ion-col>
+    <ion-col *ngIf>
+      Swim:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngIf>
+      Climb:
+    </ion-col>
+    <ion-col *ngIf>
+      Burrow:
+    </ion-col>
+  </ion-row>
+  <hr>
+  <h5 class="displayHeadings">
+    Attributes:
+  </h5>
+  <!-- TODO: Add a function for each attribute to show the number and modifier -->
+  <div class="attributesFormatting" padding>
+    Strength:
+  </div>
+  <div class="attributesFormatting" padding>
+    Dexterity
+  </div>
+  <div class="attributesFormatting" padding>
+    Constitution:
+  </div>
+  <div class="attributesFormatting" padding>
+    Intelligence:
+  </div>
+  <div class="attributesFormatting" padding>
+    Wisdom:
+  </div>
+  <div class="attributesFormatting" padding>
+    Charisma:
+  </div>
+  <hr>
+
+  <h5 class="displayHeadings">
+    Proficiencies:
+  </h5>
+  <ion-card>
+    <ion-card-header class="proficiencyHeadings">
+      Saving Throws:
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="proficiencyHeadings">
+      Skills:
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="proficiencyHeadings">
+      Armour:
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="proficiencyHeadings">
+      Weapons:
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="proficiencyHeadings">
+      Tools:
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+  <br>
+  <hr>
+
+  <div padding>
+    Senses:
+  </div>
+  <div padding>
+    Feats:
+  </div>
+  <div padding>
+    Damage Resistances:
+  </div>
+  <div padding>
+    Languages:
+  </div>
+  <hr>
+
+
+  <h5 class="displayHeadings">
+    Details
+  </h5>
+  <ion-row>
+    <ion-col>
+      Gender:
+    </ion-col>
+    <ion-col>
+      Age:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Height:
+    </ion-col>
+    <ion-col>
+      Weight:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Eye Colour:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Skin Colour:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Hair Colour:
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Defining Features:
+    </ion-col>
+  </ion-row>
+  <br>
+
+
+  <!-- <div class="placeholder"></div> -->
+
+  <div class="returnButton">
+    <button ion-button round (click)="pushHomePage()">Home</button>
+  </div>
+  <div class="bottomGap"></div>
+</ion-content>
