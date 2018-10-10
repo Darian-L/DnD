@@ -4,42 +4,29 @@ page-home {
     margin-top:20%;
 }
 
-.fumbleStyle {
-    color: black;
-    .alert-message{
-        color: red;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-    }
-}
-
-.normalStyle {
-    color: black;
-    .alert-message{
-        color: black;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-    }
-}
-
-.maxStyle {
-    color: black;
-    .alert-message{
-        color: green;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-    }
-}
-
 .buttonWidth {
-    width: 90%
+    width: 100%
 }
 
 .bottomGap {
     height:10%
+}
+
+.sidesLabel {
+    display: flex;
+    text-align: right;
+    align-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.sideSelectBar{
+    max-width: 100% !important;
+    }
+
+.homePageHeadings {
+    text-decoration-line: underline;
+    text-align: center;
 }
 
 }

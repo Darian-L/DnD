@@ -13,7 +13,11 @@ import { LevelsPage } from '../pages/levels/levels';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any =  LevelsPage;
+  rootPage:any =  HomePage;
+  // rootPage:any =  DisplayPage;
+  // rootPage:any =  ConditionsPage;
+  // rootPage:any =  LevelsPage;
+  // rootPage:any =  EditPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

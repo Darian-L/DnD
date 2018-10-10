@@ -1,32 +1,31 @@
 <div class="topBar">
   <ion-row nowrap justify-content-around>
-    <ion-col>
-      <button ion-button round (click)="roll(4)" class="buttonWidth">
-        4
+    <ion-col col-2>
+      <button ion-button round (click)="rollSpecified(20)" class="buttonWidth">
+        d20
       </button>
     </ion-col>
 
-    <ion-col>
-      <button ion-button round (click)="roll(6)" class="buttonWidth">
-        6
-      </button>
+    <ion-col col-2 class="sidesLabel">
+      <ion-label>Sides:</ion-label>
     </ion-col>
 
     <ion-col>
-      <button ion-button round (click)="roll(8)" class="buttonWidth">
-        8
-      </button>
+      <ion-item>
+        <ion-select [(ngModel)]="selectedSides" placeholder="Select" interface="popover" class="sideSelectBar">
+          <ion-option value="4"> 4 </ion-option>
+          <ion-option value="6"> 6 </ion-option>
+          <ion-option value="8"> 8 </ion-option>
+          <ion-option value="10"> 10 </ion-option>
+          <ion-option value="12"> 12 </ion-option>
+          <!-- TODO:<ion-option value=> Custom </ion-option> -->
+        </ion-select>
+      </ion-item>
     </ion-col>
 
-    <ion-col>
-      <button ion-button round (click)="roll(10)" class="buttonWidth">
-        10
-      </button>
-    </ion-col>
-
-    <ion-col>
-      <button ion-button round (click)="roll(20)" class="buttonWidth">
-        20
+    <ion-col col-3>
+      <button ion-button round (click)="roll()" class="buttonWidth">
+        Roll
       </button>
     </ion-col>
   </ion-row>
@@ -34,7 +33,7 @@
 
 <ion-content padding class="content">
   <h3>
-    Name:
+    Name: {{Char}}
   </h3>
   <hr />
   <ion-row>
@@ -239,9 +238,13 @@
 
 
   <!-- <div class="placeholder"></div> -->
-
-  <div class="returnButton">
-    <button ion-button round (click)="pushHomePage()">Home</button>
-  </div>
+  <ion-row>
+    <ion-col>
+      <button ion-button round (click)="pushEditPage()">Edit</button>
+    </ion-col>
+    <ion-col class="returnButton">
+      <button ion-button round (click)="pushHomePage()">Home</button>
+    </ion-col>
+  </ion-row>
   <div class="bottomGap"></div>
 </ion-content>

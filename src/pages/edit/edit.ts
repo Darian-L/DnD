@@ -31,13 +31,13 @@ export class EditPage {
           handler: () => {
             // this.storage.delete
             this.navCtrl.push(HomePage)
-            console.log("Confirm clicked");
+            console.log("Delete confirmed");
           }
         },
         {
           text: "Cancel",
           handler: () => {
-            console.log("Cancel clicked");
+            console.log("Delete cancelled");
           }
         }
       ]

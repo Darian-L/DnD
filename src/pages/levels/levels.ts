@@ -14,6 +14,7 @@ export class LevelsPage {
 
     pushHomePage() {
         this.navCtrl.push(HomePage)
+        console.log("Home pushed")
       }
 
 }

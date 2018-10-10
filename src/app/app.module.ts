@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+
 import { IonicStorageModule } from '@ionic/storage'
 
 import { MyApp } from './app.component';
@@ -13,6 +14,8 @@ import { ConditionsPage} from '../pages/conditions/conditions';
 import { LevelsPage } from '../pages/levels/levels';
 
 import { HttpModule } from '@angular/http';
+import { RollsProvider } from '../Providers/Rolls';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     HttpModule
@@ -42,6 +46,7 @@ import { HttpModule } from '@angular/http';
 
   ],
   providers: [
+    RollsProvider,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

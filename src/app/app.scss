@@ -6,7 +6,7 @@
     padding-bottom: 3%;
     padding-top: 3%;
 }
-// TODO figure out scaling and where bar between div and content comes from
+// TODO figure out scaling and where bar between div and content comes from(probably padding)
 .topBar {
     position: fixed;
     width: 100%;
@@ -20,5 +20,36 @@
 
 .placeholder {
     height: 200%;
-    background: grey;
+    background: #e8e9ff;
 }
+
+.fumbleStyle {
+    color: black;
+    .alert-message{
+        color: red;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+.normalStyle {
+    color: black;
+    .alert-message{
+        color: black;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+.maxStyle {
+    color: black;
+    .alert-message{
+        color: green;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
