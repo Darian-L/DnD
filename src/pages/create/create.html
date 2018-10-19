@@ -1,13 +1,11 @@
 <ion-header>
-  <ion-navbar class="headerBackground">
-    <ion-title padding>
-      Edit
+    <ion-title padding class="headerBackground">
+      Create
     </ion-title>
-  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="formCharacters">
+  <form [formGroup]="newCharacter">
     <ion-item>
       <ion-label color="dark">Name:</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
@@ -211,12 +209,12 @@
   <ion-row>
     <ion-col>
       <div class="updateButton">
-        <button ion-button round (click)="saveEdit()">Save</button>
+        <button ion-button round (click)="saveCreate()">Save</button>
       </div>
     </ion-col>
     <ion-col>
       <div class="updateButton">
-        <button ion-button round (click)="deleteEdit()">Delete</button>
+        <button ion-button round (click)="deleteCreate()">Delete</button>
       </div>
     </ion-col>
   </ion-row>

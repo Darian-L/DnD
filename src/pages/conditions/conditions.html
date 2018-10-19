@@ -1,7 +1,9 @@
 <ion-header>
-    <ion-title class="headerBackground">
-        Conditions
-    </ion-title>
+    <ion-navbar class="headerBackground">
+        <ion-title >
+            Conditions
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -285,84 +287,87 @@
             or scorching temperatures, can lead to a Special condition called exhaustion. Exhaustion is measured in six
             levels. An effect can give a creature one or more levels of exhaustion, as specified in the effect’s
             description.
-            <br>
-            <br>
-            <ion-row class="table">
-                Levels
-            </ion-row>
+            <ion-grid padding>
+                <ion-row class="table">
+                    Levels
+                </ion-row>
 
-            <ion-row>
-                <ion-col col-2 class="table">
-                    1
-                </ion-col>
-                <ion-col class="table">
-                    Disadvantage on Ability Checks
-                </ion-col>
-            </ion-row>
+                <ion-row>
+                    <ion-col col-2 class="table">
+                        1
+                    </ion-col>
+                    <ion-col class="table">
+                        Disadvantage on Ability Checks
+                    </ion-col>
+                </ion-row>
 
-            <ion-row>
-                <ion-col col-2 class="table">
-                    2
-                </ion-col>
-                <ion-col class="table">
-                    Speed halved
-                </ion-col>
-            </ion-row>
+                <ion-row>
+                    <ion-col col-2 class="table">
+                        2
+                    </ion-col>
+                    <ion-col class="table">
+                        Speed halved
+                    </ion-col>
+                </ion-row>
 
-            <ion-row>
-                <ion-col col-2 class="table">
-                    3
-                </ion-col>
-                <ion-col class="table">
-                    Disadvantage on Attack rolls and Saving Throws
-                </ion-col>
-            </ion-row>
+                <ion-row>
+                    <ion-col col-2 class="table">
+                        3
+                    </ion-col>
+                    <ion-col class="table">
+                        Disadvantage on Attack rolls and Saving Throws
+                    </ion-col>
+                </ion-row>
 
-            <ion-row>
-                <ion-col col-2 class="table">
-                    4
-                </ion-col>
-                <ion-col class="table">
-                    Hit point maximum halved
-                </ion-col>
-            </ion-row>
+                <ion-row>
+                    <ion-col col-2 class="table">
+                        4
+                    </ion-col>
+                    <ion-col class="table">
+                        Hit point maximum halved
+                    </ion-col>
+                </ion-row>
 
-            <ion-row>
-                <ion-col col-2 class="table">
-                    5
-                </ion-col>
-                <ion-col class="table">
-                    Speed reduced to 0
-                </ion-col>
-            </ion-row>
+                <ion-row>
+                    <ion-col col-2 class="table">
+                        5
+                    </ion-col>
+                    <ion-col class="table">
+                        Speed reduced to 0
+                    </ion-col>
+                </ion-row>
 
-            <ion-row>
-                <ion-col col-2 class="table">
-                    6
-                </ion-col>
-                <ion-col class="table">
-                    Death
-                </ion-col>
-            </ion-row>
-            <br>
-            If an already exhausted creature suffers another effect that causes exhaustion, its current level of
-            exhaustion increases by the amount specified in the effect’s description.<br><br>
+                <ion-row>
+                    <ion-col col-2 class="table">
+                        6
+                    </ion-col>
+                    <ion-col class="table">
+                        Death
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <div class="spacer">If an already exhausted creature suffers another effect that causes exhaustion, its
+                current level of
+                exhaustion increases by the amount specified in the effect’s description.</div>
 
-            A creature suffers the effect of its current level of exhaustion as well as all lower levels. For example,
-            a creature suffering level 2 exhaustion has its speed halved and has disadvantage on Ability Checks.<br><br>
+            <div class="spacer"> A creature suffers the effect of its current level of exhaustion as well as all lower
+                levels. For example,
+                a creature suffering level 2 exhaustion has its speed halved and has disadvantage on Ability Checks.</div>
 
-            An effect that removes exhaustion reduces its level as specified in the effect’s description, with all
-            exhaustion effects ending if a creature’s exhaustion level is reduced below 1.<br><br>
+            <div class="spacer">An effect that removes exhaustion reduces its level as specified in the effect’s
+                description, with all
+                exhaustion effects ending if a creature’s exhaustion level is reduced below 1.</div>
 
-            Finishing a Long Rest reduces a creature’s exhaustion level by 1, provided that the creature has also
-            ingested some food and drink.
+            <div class="spacer">Finishing a Long Rest reduces a creature’s exhaustion level by 1, provided that the
+                creature has also
+                ingested some food and drink.</div>
 
         </ion-card-content>
     </ion-card>
 
-    <div class="returnButton">
+    <!-- <div class="returnButton">
         <button ion-button round (click)="pushHomePage()">Home</button>
-    </div>
+    </div> -->
 
     <!-- <div class="placeholder">
     </div> -->

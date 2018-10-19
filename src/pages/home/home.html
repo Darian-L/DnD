@@ -12,13 +12,13 @@
 
     <ion-col>
       <ion-item>
-        <ion-select [(ngModel)]="selectedSides" placeholder="Select" interface="popover" class="sideSelectBar">
+        <ion-select [(ngModel)]="selectedSides" placeholder="Select" interface="popover" class="sideSelectBar" no-lines>
           <ion-option value="4"> 4 </ion-option>
           <ion-option value="6"> 6 </ion-option>
           <ion-option value="8"> 8 </ion-option>
           <ion-option value="10"> 10 </ion-option>
           <ion-option value="12"> 12 </ion-option>
-          <!-- TODO:<ion-option value=> Custom </ion-option> -->
+          <ion-option value=0> Custom </ion-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -34,20 +34,22 @@
 
 
 <ion-content class="content" padding>
+  
   <!-- <button ion-button (click)="test(no)">Test</button> -->
 
-<h3 class="homePageHeadings">Characters:</h3>
-<br>
-<!-- TODO: Character link generated using name -->
-<div (click)="pushDisplayPage('Darian')">Character Darian</div>
-<button ion-button round (click)="pushEditPage()">Add New</button>
-<br>
+  <h3 class="homePageHeadings">Characters:</h3>
+  <ion-list>
+    <ion-item *ngFor="let character of characters;let index = i" (click)="pushDisplayPage(character.id, index)">
+      {{ character.name }}
+    </ion-item>
+  </ion-list>
+  <button ion-button round (click)="createNewCharacter()">Add New</button>
+  <br>
 
-<h3 class="homePageHeadings">Resources:</h3>
-<br>
-<button ion-button round (click)="pushConditionsPage()">Conditions</button>
-<br>
-<button ion-button round (click)="pushLevelsPage()">Level Advancement</button>
+  <h3 class="homePageHeadings">Resources:</h3>
+
+  <button ion-button round (click)="pushConditionsPage()" class="resourceButtons">Conditions</button>
+  <button ion-button round (click)="pushLevelsPage()" class="resourceButtons">Level Advancement</button>
 
   <!-- <div class="placeholder"></div> -->
   <div class="bottomGap"></div>

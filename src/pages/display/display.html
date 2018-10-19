@@ -1,16 +1,16 @@
-<div class="topBar">
+<ion-navbar class="topBar">
   <ion-row nowrap justify-content-around>
-    <ion-col col-2>
+    <!-- <ion-col col-2>
       <button ion-button round (click)="rollSpecified(20)" class="buttonWidth">
         d20
       </button>
-    </ion-col>
+    </ion-col> -->
 
-    <ion-col col-2 class="sidesLabel">
+    <ion-col col-3 class="sidesLabel">
       <ion-label>Sides:</ion-label>
     </ion-col>
 
-    <ion-col>
+    <ion-col col-5>
       <ion-item>
         <ion-select [(ngModel)]="selectedSides" placeholder="Select" interface="popover" class="sideSelectBar">
           <ion-option value="4"> 4 </ion-option>
@@ -18,30 +18,30 @@
           <ion-option value="8"> 8 </ion-option>
           <ion-option value="10"> 10 </ion-option>
           <ion-option value="12"> 12 </ion-option>
-          <!-- TODO:<ion-option value=> Custom </ion-option> -->
+          <ion-option value=0> Custom </ion-option>
         </ion-select>
       </ion-item>
     </ion-col>
 
-    <ion-col col-3>
+    <ion-col col-4>
       <button ion-button round (click)="roll()" class="buttonWidth">
         Roll
       </button>
     </ion-col>
   </ion-row>
-</div>
+</ion-navbar>
 
 <ion-content padding class="content">
   <h3>
-    Name: {{Char}}
+    Name: {{name}}
   </h3>
   <hr />
   <ion-row>
     <ion-col>
-      Race:
+      Race: {{race}}
     </ion-col>
     <ion-col>
-      Class:
+      Class: {{class}}
     </ion-col>
   </ion-row>
   <ion-row>
@@ -177,8 +177,8 @@
 
     </ion-card-content>
   </ion-card>
-  <br>
-  <hr>
+
+  <hr class="spacer">
 
   <div padding>
     Senses:
@@ -234,17 +234,11 @@
       Defining Features:
     </ion-col>
   </ion-row>
-  <br>
-
+  <hr>
 
   <!-- <div class="placeholder"></div> -->
-  <ion-row>
-    <ion-col>
-      <button ion-button round (click)="pushEditPage()">Edit</button>
-    </ion-col>
-    <ion-col class="returnButton">
-      <button ion-button round (click)="pushHomePage()">Home</button>
-    </ion-col>
-  </ion-row>
+
+  <button ion-button round class="centering" (click)="pushEditPage()">Edit</button>
+
   <div class="bottomGap"></div>
 </ion-content>

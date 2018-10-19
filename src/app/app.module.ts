@@ -12,9 +12,12 @@ import { DisplayPage } from '../pages/display/display';
 import { EditPage } from '../pages/edit/edit';
 import { ConditionsPage} from '../pages/conditions/conditions';
 import { LevelsPage } from '../pages/levels/levels';
+import { CreatePage } from '../pages/create/create'
 
 import { HttpModule } from '@angular/http';
-import { RollsProvider } from '../Providers/Rolls';
+import { Repository } from '../providers/repository';
+import { RollProvider } from '../providers/rollprovider';
+import { Guid } from '../providers/guid';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -25,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     EditPage,
     ConditionsPage,
     LevelsPage,
+    CreatePage,
 
   ],
   imports: [
@@ -32,7 +36,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpModule
+    HttpModule,
   ],
 
   bootstrap: [IonicApp],
@@ -43,12 +47,14 @@ import { FormsModule } from '@angular/forms';
     EditPage,
     ConditionsPage,
     LevelsPage,
-
+    CreatePage
   ],
-  providers: [
-    RollsProvider,
+  providers: [ 
+    Repository,
+    RollProvider,
     StatusBar,
     SplashScreen,
+    Guid,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
