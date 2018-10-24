@@ -65,7 +65,8 @@ export class HomePage {
           cssClass: "normalStyle",
           inputs: [{
             name: "custom",
-            placeholder: "Sides"
+            placeholder: "Sides",
+            value: this.customSides,
           }],
           buttons: [
             {

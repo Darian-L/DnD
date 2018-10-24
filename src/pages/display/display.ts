@@ -31,11 +31,6 @@ export class DisplayPage {
     console.log(this.char)
   }
 
-  navHomePage() {
-    this.navCtrl.popToRoot()
-    console.log("Home pushed")
-  }
-
   pushEditPage() {
     let character = {
       key: this.char
@@ -62,7 +57,8 @@ export class DisplayPage {
           cssClass: "normalStyle",
           inputs: [{
             name: "custom",
-            placeholder: "Sides"
+            placeholder: "Sides",
+            value: this.customSides,
           }],
           buttons: [
             {
@@ -149,42 +145,6 @@ export class DisplayPage {
       else {
         let alert = this.alertCtrl.create({
           title: 'd' + this.customSides + ' roll=',
-          message: this.diceRoll,
-          cssClass: 'normalStyle',
-          buttons: ['Close']
-        });
-        alert.present()
-      }
-    }
-  }
-
-  rollSpecified(sides) {
-    console.log(this.diceRoll = Math.floor(Math.random() * sides) + 1)
-
-    if (this.diceRoll == '1') {
-      let alert = this.alertCtrl.create({
-        title: 'd' + sides + ' roll=',
-        message: this.diceRoll,
-        cssClass: 'fumbleStyle',
-        buttons: ['Close']
-      });
-      console.log("Fumble");
-      alert.present()
-    }
-    else {
-      if (this.diceRoll == sides) {
-        let alert = this.alertCtrl.create({
-          title: 'd' + sides + ' roll=',
-          message: this.diceRoll,
-          cssClass: 'maxStyle',
-          buttons: ['Close']
-        });
-        console.log("Crit");
-        alert.present()
-      }
-      else {
-        let alert = this.alertCtrl.create({
-          title: 'd' + sides + ' roll=',
           message: this.diceRoll,
           cssClass: 'normalStyle',
           buttons: ['Close']
