@@ -1,21 +1,30 @@
 .headerBackground {
     text-align: center;
-    background-color: #e8e9ff;
-    border-bottom-color: grey;
-    border-bottom-style: dashed;
+    background-color: #222;
     padding-right: 55px;
+    color: #ff8d22;
 }
+
+ion-header{
+  .toolbar-title{
+    color: #ff8d22;}
+}
+
+ion-navbar{
+  ion-icon.back-button-icon.icon {
+  color: map-get($colors, primary);
+}}
+
 
 // TODO figure out scaling and where bar between div and content comes from(probably padding)
 .topBar {
     position: fixed;
     width: 100%;
-    background-color: #e8e9ff;
+    background-color: #222;
     padding-top: 1%;
-    border-bottom-color: grey;
-    border-bottom-style: dashed;
     padding-bottom: 1%;
     margin-bottom: 0%;
+    color: #ff8d22
 }
 
 .placeholder {
@@ -57,7 +66,7 @@
     .toast-wrapper {
         border-radius: 10px !important;
         text-align: center;
-        background-color: #e8e9ff;
+        background-color: #ff8d22;
         border: solid;
         border-width: 2px;
     }

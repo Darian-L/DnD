@@ -34,16 +34,16 @@
 
 
 <ion-content class="content" padding>
-  
+
   <!-- <button ion-button (click)="test(no)">Test</button> -->
 
   <h3 class="homePageHeadings">Characters:</h3>
   <ion-list>
-    <ion-item *ngFor="let character of characters;let index = i" (click)="pushDisplayPage(character.id, index)">
+    <ion-item *ngFor="let character of characters;let i = index" (click)="pushDisplayPage(i)">
       {{ character.name }}
     </ion-item>
   </ion-list>
-  <button ion-button round (click)="createNewCharacter()">Add New</button>
+  <button ion-button round (click)="createNewCharacter()" class="resourceButtons">Add New</button>
   <br>
 
   <h3 class="homePageHeadings">Resources:</h3>
