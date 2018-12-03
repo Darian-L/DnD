@@ -4,8 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { IonicStorageModule } from '@ionic/storage'
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DisplayPage } from '../pages/display/display';
@@ -19,6 +17,7 @@ import { Repository } from '../providers/repository';
 import { RollProvider } from '../providers/rollprovider';
 import { Guid } from '../providers/guid';
 import { FormsModule } from '@angular/forms';
+import { Autosize } from '../providers/autosize';
 
 @NgModule({
   declarations: [
@@ -29,13 +28,13 @@ import { FormsModule } from '@angular/forms';
     ConditionsPage,
     LevelsPage,
     CreatePage,
+    Autosize,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
     HttpModule,
   ],
 
@@ -49,7 +48,7 @@ import { FormsModule } from '@angular/forms';
     LevelsPage,
     CreatePage
   ],
-  providers: [ 
+  providers: [
     Repository,
     RollProvider,
     StatusBar,

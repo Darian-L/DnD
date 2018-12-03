@@ -1,25 +1,22 @@
 <ion-navbar class="topBar">
   <ion-row nowrap justify-content-around>
-    <!-- <ion-col col-2>
-      <button ion-button round (click)="rollSpecified(20)" class="buttonWidth">
-        d20
-      </button>
-    </ion-col> -->
-
-    <ion-col col-3 class="sidesLabel">
-      <ion-label>Sides:</ion-label>
-    </ion-col>
+    <ion-col col-3 class="sidesLabel"> <ion-label>Sides:</ion-label> </ion-col>
 
     <ion-col col-5>
       <ion-item>
-        <ion-select [(ngModel)]="selectedSides" placeholder="Select" interface="popover" class="sideSelectBar">
+        <ion-select
+          [(ngModel)]="selectedSides"
+          placeholder="Select"
+          interface="popover"
+          class="sideSelectBar"
+        >
           <ion-option value="4"> 4 </ion-option>
           <ion-option value="6"> 6 </ion-option>
           <ion-option value="8"> 8 </ion-option>
           <ion-option value="10"> 10 </ion-option>
           <ion-option value="12"> 12 </ion-option>
           <ion-option value="20"> 20 </ion-option>
-          <ion-option value=0> Custom </ion-option>
+          <ion-option value="0"> Custom </ion-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -33,213 +30,179 @@
 </ion-navbar>
 
 <ion-content padding class="content">
-  <h3>
-    Name: {{name}}
-  </h3>
-  <hr />
-  <ion-row>
-    <ion-col>
-      Race: {{race}}
-    </ion-col>
-    <ion-col>
-      Class: {{class}}
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Level:
-    </ion-col>
-    <ion-col>
-      Exp:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Size:
-    </ion-col>
-    <ion-col>
-      Background:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Alignment:
-    </ion-col>
-  </ion-row>
-  <hr>
+  <form [formGroup]="displayCharacterForm">
+    <h3>Name: {{ character?.name }}</h3>
+    <ion-row>
+      <ion-col col-1> HP: </ion-col>
+      <ion-col col-2>
+        <ion-input
+          type="number"
+          formControlName="currentHP"
+          class="hpfield"
+          (ionBlur)="update($event)"
+        ></ion-input>
+      </ion-col>
+      <ion-col class="maxHP"> /{{ character?.maxHP }} </ion-col>
+      <ion-col col-7></ion-col>
+    </ion-row>
+    <hr />
+    <ion-row>
+      <ion-col> Race: {{ character?.race }} </ion-col>
+      <ion-col> Class: {{ character?.class }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Level: {{ character?.level }} </ion-col>
+      <ion-col> Exp: {{ character?.exp }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Size: {{ character?.size }} </ion-col>
+      <ion-col> Background: {{ character?.background }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Alignment: {{ character?.alignment }} </ion-col>
+    </ion-row>
+    <hr />
 
-  <ion-row>
-    <ion-col>
-      HP: /
-      <!-- TODO: Current/Max -->
-    </ion-col>
-    <ion-col>
-      HitDice:
-      <!-- TODO: Additional function that combines the level and the HitDice -->
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      AC:
-    </ion-col>
-    <ion-col>
-      Initiative:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Proficiency Bonus:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Speed:
-    </ion-col>
-    <ion-col *ngIf>
-      Fly:
-    </ion-col>
-    <ion-col *ngIf>
-      Swim:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col *ngIf>
-      Climb:
-    </ion-col>
-    <ion-col *ngIf>
-      Burrow:
-    </ion-col>
-  </ion-row>
-  <hr>
-  <h5 class="displayHeadings">
-    Attributes:
-  </h5>
-  <!-- TODO: Add a function for each attribute to show the number and modifier -->
-  <div class="attributesFormatting" padding>
-    Strength:
-  </div>
-  <div class="attributesFormatting" padding>
-    Dexterity
-  </div>
-  <div class="attributesFormatting" padding>
-    Constitution:
-  </div>
-  <div class="attributesFormatting" padding>
-    Intelligence:
-  </div>
-  <div class="attributesFormatting" padding>
-    Wisdom:
-  </div>
-  <div class="attributesFormatting" padding>
-    Charisma:
-  </div>
-  <hr>
+    <ion-row>
+      <ion-col> AC: {{ character?.ac }} </ion-col>
+      <ion-col>
+        HitDice: {{ character?.level }}{{ character?.hitdice }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Proficiency Bonus: {{ character?.pb }} </ion-col>
+      <ion-col> Initiative: {{ character?.initiative }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Speed: {{ character?.landSpeed }} </ion-col>
+      <ion-col *ngIf="character?.flySpeed">
+        Fly: {{ character?.flySpeed }}
+      </ion-col>
+      <ion-col *ngIf="character?.swimSpeed">
+        Swim: {{ character?.swimSpeed }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="character?.climbSpeed">
+        Climb: {{ character?.climbSpeed }}
+      </ion-col>
+      <ion-col *ngIf="character?.burrowSpeed">
+        Burrow: {{ character?.burrowSpeed }}
+      </ion-col>
+    </ion-row>
+    <hr />
+    <h5 class="displayHeadings">Attributes:</h5>
+    <!--
+      TODO: Add a function for each attribute to show the number and modifier
+    -->
+    <div class="attributesFormatting" padding>
+      Strength: {{ character?.str }} ({{ strmodifier }})
+    </div>
+    <div class="attributesFormatting" padding>
+      Dexterity: {{ character?.dex }} ({{ dexmodifier }})
+    </div>
+    <div class="attributesFormatting" padding>
+      Constitution: {{ character?.con }} ({{ conmodifier }})
+    </div>
+    <div class="attributesFormatting" padding>
+      Intelligence: {{ character?.int }} ({{ intmodifier }})
+    </div>
+    <div class="attributesFormatting" padding>
+      Wisdom: {{ character?.wis }} ({{ wismodifier }})
+    </div>
+    <div class="attributesFormatting" padding>
+      Charisma: {{ character?.cha }} ({{ chamodifier }})
+    </div>
+    <hr />
 
-  <h5 class="displayHeadings">
-    Proficiencies:
-  </h5>
-  <ion-card>
-    <ion-card-header class="proficiencyHeadings">
+    <h5 class="displayHeadings">Proficiencies:</h5>
+    <div padding class="bordered" class="displayHeadings">
       Saving Throws:
-    </ion-card-header>
-    <ion-card-content>
+      <div>{{ character?.savingThrowProf }}</div>
+    </div>
+    <ion-card>
+      <ion-card-header class="proficiencyHeadings"> Skills: </ion-card-header>
+      <ion-card-content> {{ character?.skillProf }} </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header class="proficiencyHeadings"> Armour: </ion-card-header>
+      <ion-card-content> {{ character?.armourProf }} </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header class="proficiencyHeadings"> Weapons: </ion-card-header>
+      <ion-card-content> {{ character?.weaponProf }} </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header class="proficiencyHeadings"> Tools: </ion-card-header>
+      <ion-card-content> {{ character?.toolProf }} </ion-card-content>
+    </ion-card>
 
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header class="proficiencyHeadings">
-      Skills:
-    </ion-card-header>
-    <ion-card-content>
+    <hr class="spacer" />
 
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header class="proficiencyHeadings">
-      Armour:
-    </ion-card-header>
-    <ion-card-content>
+    <div padding>
+      Senses:
+      <div>{{ character?.senses }}</div>
+    </div>
+    <div padding>
+      Feats:
+      <div>{{ character?.feats }}</div>
+    </div>
+    <div padding>
+      Damage Resistances:
+      <div>{{ character?.damageResistances }}</div>
+    </div>
+    <div padding>
+      Languages:
+      <div>{{ character?.languages }}</div>
+    </div>
+    <hr />
 
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header class="proficiencyHeadings">
-      Weapons:
-    </ion-card-header>
-    <ion-card-content>
+    <h5 class="displayHeadings">Details</h5>
+    <ion-row>
+      <ion-col> Gender: {{ character?.gender }} </ion-col>
+      <ion-col> Age: {{ character?.age }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Height: {{ character?.height }} </ion-col>
+      <ion-col> Weight: {{ character?.weight }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Eye Colour: {{ character?.eyeColour }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Skin Colour: {{ character?.skinColour }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Hair Colour: {{ character?.hairColour }} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> Defining Features: {{ character?.definingFeatures }} </ion-col>
+    </ion-row>
+    <hr />
 
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header class="proficiencyHeadings">
-      Tools:
-    </ion-card-header>
-    <ion-card-content>
+    <h5 class="displayHeadings">Notes:</h5>
+    <ion-item class="bordered">
+      <ion-textarea
+        type="text"
+        autoresize
+        formControlName="notes1"
+        (ionBlur)="update($event)"
+      ></ion-textarea>
+    </ion-item>
+    <br />
+    <ion-item class="bordered">
+      <ion-textarea
+        type="text"
+        autoresize
+        formControlName="notes2"
+        (ionBlur)="update($event)"
+      ></ion-textarea>
+    </ion-item>
+  </form>
 
-    </ion-card-content>
-  </ion-card>
-
-  <hr class="spacer">
-
-  <div padding>
-    Senses:
-  </div>
-  <div padding>
-    Feats:
-  </div>
-  <div padding>
-    Damage Resistances:
-  </div>
-  <div padding>
-    Languages:
-  </div>
-  <hr>
-
-
-  <h5 class="displayHeadings">
-    Details
-  </h5>
-  <ion-row>
-    <ion-col>
-      Gender:
-    </ion-col>
-    <ion-col>
-      Age:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Height:
-    </ion-col>
-    <ion-col>
-      Weight:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Eye Colour:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Skin Colour:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Hair Colour:
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Defining Features:
-    </ion-col>
-  </ion-row>
-  <hr>
-
-  <!-- <div class="placeholder"></div> -->
-
-  <button ion-button round class="centering" (click)="pushEditPage()">Edit</button>
+  <button ion-button round class="centering" (click)="pushEditPage()">
+    Edit
+  </button>
 
   <div class="bottomGap"></div>
 </ion-content>
