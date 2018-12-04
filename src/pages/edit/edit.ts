@@ -114,6 +114,7 @@ export class EditPage {
       let currentIndex = this.navCtrl.getActive().index;
       this.navCtrl.push(DisplayPage, { character }).then(() => {
         this.navCtrl.remove(currentIndex);
+        this.navCtrl.remove(currentIndex-1);
       });
     } else {
       let toast = this.toastCtrl.create({
