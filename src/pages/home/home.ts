@@ -52,6 +52,7 @@ export class HomePage {
           cssClass: "normalStyle",
           inputs: [
             {
+              type: "number",
               name: "custom",
               placeholder: "Sides",
               value: this.customSides
@@ -59,18 +60,18 @@ export class HomePage {
           ],
           buttons: [
             {
-              text: "Cancel",
-              role: "cancel",
-              handler: data => {
-                console.log("Cancel clicked");
-              }
-            },
-            {
               text: "Roll",
               handler: data => {
                 this.customSides = data.custom;
                 console.log(this.customSides);
                 this.rollCustom();
+              }
+            },
+            {
+              text: "Cancel",
+              role: "cancel",
+              handler: data => {
+                console.log("Cancel clicked");
               }
             }
           ]

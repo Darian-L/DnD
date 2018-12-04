@@ -44,8 +44,21 @@ page-display {
   .displayHeadings {
     text-decoration-line: underline;
   }
-  .attributesFormatting {
+  .bolding {
     font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .border_wrapped {
+    border: solid;
+    border-width: thin;
+    white-space: pre-wrap;
+  }
+
+  .underbolded {
+    text-decoration-line: underline;
+    font-weight: bold;
+    text-align: center;
   }
 
   .proficiencyHeadings {
@@ -79,5 +92,9 @@ page-display {
   .bordered {
     border: solid;
     border-width: thin;
+  }
+
+  .white-space_wrap {
+    white-space: pre-wrap;
   }
 }
