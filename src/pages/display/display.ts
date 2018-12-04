@@ -157,123 +157,123 @@ export class DisplayPage {
       this.chamodifier = Math.floor((this.character.cha - 10) / 2);
     }
 
-    if (this.character.strSaveProf == "true") {
+    if (this.character.strSaveProf == true) {
       this.strSave = this.strmodifier + Number(this.character.pb);
     } else {
       this.strSave = this.strmodifier;
     }
-    if (this.character.dexSaveProf == "true") {
+    if (this.character.dexSaveProf == true) {
       this.dexSave = this.dexmodifier + Number(this.character.pb);
     } else {
       this.dexSave = this.dexmodifier;
     }
-    if (this.character.conSaveProf == "true") {
+    if (this.character.conSaveProf == true) {
       this.conSave = this.conmodifier + Number(this.character.pb);
     } else {
       this.conSave = this.conmodifier;
     }
-    if (this.character.intSaveProf == "true") {
+    if (this.character.intSaveProf == true) {
       this.intSave = this.intmodifier + Number(this.character.pb);
     } else {
       this.intSave = this.intmodifier;
     }
-    if (this.character.wisSaveProf == "true") {
+    if (this.character.wisSaveProf == true) {
       this.wisSave = this.wismodifier + Number(this.character.pb);
     } else {
       this.wisSave = this.wismodifier;
     }
-    if (this.character.chaSaveProf == "true") {
+    if (this.character.chaSaveProf == true) {
       this.chaSave = this.chamodifier + Number(this.character.pb);
     } else {
       this.chaSave = this.chamodifier;
     }
 
-    if (this.character.acrobaticsProf == "true") {
+    if (this.character.acrobaticsProf == true) {
       this.acrProf = this.dexmodifier + Number(this.character.pb);
     } else {
       this.acrProf = this.dexmodifier;
     }
-    if (this.character.animalHandlingProf == "true") {
+    if (this.character.animalHandlingProf == true) {
       this.aniProf = this.wismodifier + Number(this.character.pb);
     } else {
       this.aniProf = this.wismodifier;
     }
-    if (this.character.arcanaProf == "true") {
+    if (this.character.arcanaProf == true) {
       this.arcProf = this.intmodifier + Number(this.character.pb);
     } else {
       this.arcProf = this.intmodifier;
     }
-    if (this.character.athleticsProf == "true") {
+    if (this.character.athleticsProf == true) {
       this.athProf = this.strmodifier + Number(this.character.pb);
     } else {
       this.athProf = this.strmodifier;
     }
-    if (this.character.deceptionProf == "true") {
+    if (this.character.deceptionProf == true) {
       this.decProf = this.chamodifier + Number(this.character.pb);
     } else {
       this.decProf = this.chamodifier;
     }
-    if (this.character.historyProf == "true") {
+    if (this.character.historyProf == true) {
       this.hisProf = this.intmodifier + Number(this.character.pb);
     } else {
       this.hisProf = this.intmodifier;
     }
-    if (this.character.insightProf == "true") {
+    if (this.character.insightProf == true) {
       this.insProf = this.wismodifier + Number(this.character.pb);
     } else {
       this.insProf = this.wismodifier;
     }
-    if (this.character.intimidationProf == "true") {
+    if (this.character.intimidationProf == true) {
       this.intProf = this.chamodifier + Number(this.character.pb);
     } else {
       this.intProf = this.chamodifier;
     }
-    if (this.character.investigationProf == "true") {
+    if (this.character.investigationProf == true) {
       this.invProf = this.intmodifier + Number(this.character.pb);
     } else {
       this.invProf = this.intmodifier;
     }
-    if (this.character.medicineProf == "true") {
+    if (this.character.medicineProf == true) {
       this.medProf = this.wismodifier + Number(this.character.pb);
     } else {
       this.medProf = this.wismodifier;
     }
-    if (this.character.natureProf == "true") {
+    if (this.character.natureProf == true) {
       this.natProf = this.intmodifier + Number(this.character.pb);
     } else {
       this.natProf = this.intmodifier;
     }
-    if (this.character.perceptionProf == "true") {
+    if (this.character.perceptionProf == true) {
       this.percProf = this.wismodifier + Number(this.character.pb);
     } else {
       this.percProf = this.wismodifier;
     }
-    if (this.character.performanceProf == "true") {
+    if (this.character.performanceProf == true) {
       this.perfProf = this.chamodifier + Number(this.character.pb);
     } else {
       this.perfProf = this.chamodifier;
     }
-    if (this.character.persuasionProf == "true") {
+    if (this.character.persuasionProf == true) {
       this.persProf = this.chamodifier + Number(this.character.pb);
     } else {
       this.persProf = this.chamodifier;
     }
-    if (this.character.religionProf == "true") {
+    if (this.character.religionProf == true) {
       this.relProf = this.intmodifier + Number(this.character.pb);
     } else {
       this.relProf = this.intmodifier;
     }
-    if (this.character.sleightofhandProf == "true") {
+    if (this.character.sleightofhandProf == true) {
       this.sleProf = this.dexmodifier + Number(this.character.pb);
     } else {
       this.sleProf = this.dexmodifier;
     }
-    if (this.character.stealthProf == "true") {
+    if (this.character.stealthProf == true) {
       this.steProf = this.dexmodifier + Number(this.character.pb);
     } else {
       this.steProf = this.dexmodifier;
     }
-    if (this.character.survivalProf == "true") {
+    if (this.character.survivalProf == true) {
       this.surProf = this.wismodifier + Number(this.character.pb);
     } else {
       this.surProf = this.wismodifier;
