@@ -43,10 +43,23 @@ page-display {
 
   .displayHeadings {
     text-decoration-line: underline;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
+
+  .attributesHeadings {
+    text-decoration-line: underline;
+    margin-bottom: 20px;
+  }
+
   .bolding {
     font-weight: bold;
     margin-bottom: 5px;
+  }
+
+  .bolding_underspaced {
+    font-weight: bold;
+    margin-bottom: 15px;
   }
 
   .border_wrapped {

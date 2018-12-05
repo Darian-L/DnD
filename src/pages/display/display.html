@@ -32,184 +32,198 @@
 <ion-content padding class="content">
   <form [formGroup]="displayCharacterForm">
     <h3>Name: {{ character?.name }}</h3>
-    <ion-row>
-      <ion-col col-2>HP:</ion-col>
-      <ion-col col-2>
-        <ion-input
-          type="number"
-          formControlName="currentHP"
-          class="hpfield"
-          (ionBlur)="update($event)"
-        ></ion-input>
-      </ion-col>
-      <ion-col class="maxHP"> /{{ character?.maxHP }} </ion-col>
-      <ion-col col-6></ion-col>
-    </ion-row>
-    <hr />
-    <ion-row>
-      <ion-col>Race: {{ character?.race }}</ion-col>
-      <ion-col>Class: {{ character?.class }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Level: {{ character?.level }}</ion-col>
-      <ion-col>Exp: {{ character?.exp }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Size: {{ character?.size }}</ion-col>
-      <ion-col>Background: {{ character?.background }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Alignment: {{ character?.alignment }}</ion-col>
-    </ion-row>
-    <hr />
 
-    <ion-row>
-      <ion-col>AC: {{ character?.ac }}</ion-col>
-      <ion-col>HitDice: {{ character?.level }}{{ character?.hitdice }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Proficiency Bonus: {{ character?.pb }}</ion-col>
-      <ion-col>Initiative: {{ character?.initiative }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Speed: {{ character?.landSpeed }}</ion-col>
-      <ion-col *ngIf="character?.flySpeed">Fly: {{ character?.flySpeed }}</ion-col>
-      <ion-col *ngIf="character?.swimSpeed">Swim: {{ character?.swimSpeed }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col *ngIf="character?.climbSpeed">Climb: {{ character?.climbSpeed }}</ion-col>
-      <ion-col *ngIf="character?.burrowSpeed">Burrow: {{ character?.burrowSpeed }}</ion-col>
-    </ion-row>
-    <ion-row *ngIf="character?.spellcastingAbility">
-      <ion-col>Spellcasting Modifier: {{spellMod}}</ion-col>
-      <ion-col>Spell DC: {{spellDC}}</ion-col>
-    </ion-row>
-    <hr />
-    <h5 class="displayHeadings">Attributes:</h5>
-
-    <div class="bolding" padding>
-      Strength: {{ character?.str }}  ( {{ strmodifier }} )
-    </div>
-    <div class="bolding" padding>
-      Dexterity: {{ character?.dex }}  ( {{ dexmodifier }} )
-    </div>
-    <div class="bolding" padding>
-      Constitution: {{ character?.con }}  ( {{ conmodifier }} )
-    </div>
-    <div class="bolding" padding>
-      Intelligence: {{ character?.int }}  ( {{ intmodifier }} )
-    </div>
-    <div class="bolding" padding>
-      Wisdom: {{ character?.wis }}  ( {{ wismodifier }} )
-    </div>
-    <div class="bolding" padding>
-      Charisma: {{ character?.cha }}  ( {{ chamodifier }} )
-    </div>
-    <hr />
-
-    <h5 class="displayHeadings">Proficiencies:</h5>
-
-      <div padding class="underbolded">Saving Throws:</div>
-      <div class="bolding">Strength: [ {{ strSave }} ]</div>
-      <div class="bolding">Dexterity: [ {{ dexSave }} ]</div>
-      <div class="bolding">Constitution: [ {{ conSave }} ]</div>
-      <div class="bolding">Intelligence: [ {{ intSave }} ]</div>
-      <div class="bolding">Wisdom: [ {{ wisSave }} ]</div>
-      <div class="bolding">Charisma: [ {{ chaSave }} ]</div>
-
-      <div padding class="underbolded">Skills:</div>
-      <div class="bolding">Acrobatics: [ {{ acrProf }} ]</div>
-      <div class="bolding">Animal Handling: [ {{ aniProf }} ]</div>
-      <div class="bolding">Arcana: [ {{ arcProf }} ]</div>
-      <div class="bolding">Athletics: [ {{ athProf }} ]</div>
-      <div class="bolding">Deception: [ {{ decProf }} ]</div>
-      <div class="bolding">History: [ {{ hisProf }} ]</div>
-      <div class="bolding">Insight: [ {{ insProf }} ]</div>
-      <div class="bolding">Intimidation: [ {{ intProf }} ]</div>
-      <div class="bolding">Investigation: [ {{ invProf }} ]</div>
-      <div class="bolding">Medicine: [ {{ medProf }} ]</div>
-      <div class="bolding">Nature: [ {{ natProf }} ]</div>
-      <div class="bolding">Perception: [ {{ percProf }} ]</div>
-      <div class="bolding">Performance: [ {{ perfProf }} ]</div>
-      <div class="bolding">Persuasion: [ {{ persProf }} ]</div>
-      <div class="bolding">Religion: [ {{ relProf }} ]</div>
-      <div class="bolding">Sleight of Hand: [ {{ sleProf }} ]</div>
-      <div class="bolding">Stealth: [ {{ steProf }} ]</div>
-      <div class="bolding">Survival: [ {{ surProf }} ]</div>
-
-      <div padding class="underbolded">Armour:</div>
-      <div padding class="border_wrapped" *ngIf="character?.armourProf">{{ character?.armourProf }}</div>
-
-      <div padding class="underbolded">Weapons:</div>
-      <div padding class="border_wrapped" *ngIf="character?.weaponProf">{{ character?.weaponProf }}</div>
-
-      <div padding class="underbolded">Tools:</div>
-      <div padding class="border_wrapped" *ngIf="character?.toolProf">{{ character?.toolProf }}</div>
-
-    <hr class="spacer" />
-
-    <div padding class="underbolded">Senses:</div>
-    <div padding class="border_wrapped" *ngIf="character?.senses">{{ character?.senses }}</div>
-
-    <div padding class="underbolded">Feats:</div>
-    <div padding class="border_wrapped" *ngIf="character?.feats">{{ character?.feats }}</div>
-
-    <div padding class="underbolded">Damage Resistances:</div>
-    <div padding class="border_wrapped" *ngIf="character?.damageResistances">{{ character?.damageResistances }}</div>
-
-    <div padding class="underbolded">Languages:</div>
-    <div padding class="border_wrapped" *ngIf="character?.languages">{{ character?.languages }}</div>
-
-    <hr />
-
-    <h5 class="displayHeadings">Details</h5>
-    <ion-row>
-      <ion-col>Gender: {{ character?.gender }}</ion-col>
-      <ion-col>Age: {{ character?.age }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Height: {{ character?.height }}</ion-col>
-      <ion-col>Weight: {{ character?.weight }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Eye Colour: {{ character?.eyeColour }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Skin Colour: {{ character?.skinColour }}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Hair Colour: {{ character?.hairColour }}</ion-col>
-    </ion-row>
-    <ion-row><ion-col class="bolding">Defining Features:</ion-col></ion-row>
-    <div class="border_wrapped" padding>{{ character?.definingFeatures }}</div>
-    <hr class="spacer" />
-
-    <div *ngIf="character?.spells">
-      <h5 class="displayHeadings">Spells:</h5>
-      <div class="border_wrapped" padding>{{ character?.spells }}</div>
-      <hr class="spacer" />
+    <div>
+      <ion-segment
+        [(ngModel)]="segments"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <ion-segment-button value="basic"> Basic </ion-segment-button>
+        <ion-segment-button value="attributes"> Attributes </ion-segment-button>
+        <ion-segment-button value="details"> Details </ion-segment-button>
+      </ion-segment>
     </div>
 
-    <h5 class="displayHeadings">Notes:</h5>
-    <ion-item class="bordered">
-      <ion-textarea
-        class="white-space_wrap"
-        type="text"
-        autoresize
-        formControlName="notes1"
-        (ionBlur)="update($event)"
-      ></ion-textarea>
-    </ion-item>
-    <br />
-    <ion-item class="bordered">
-      <ion-textarea
-        class="white-space_wrap"
-        type="text"
-        autoresize
-        formControlName="notes2"
-        (ionBlur)="update($event)"
-      ></ion-textarea>
-    </ion-item>
+    <div [ngSwitch]="segments">
+      <div padding *ngSwitchCase="'basic'">
+        <ion-list>
+          <ion-row>
+            <ion-col col-2>HP:</ion-col>
+            <ion-col col-2>
+              <ion-input
+                type="number"
+                formControlName="currentHP"
+                class="hpfield"
+                (ionBlur)="update($event)"
+              ></ion-input>
+            </ion-col>
+            <ion-col class="maxHP"> /{{ character?.maxHP }} </ion-col>
+            <ion-col col-6></ion-col>
+          </ion-row>
+          <hr />
+          <ion-row>
+            <ion-col>Race: {{ character?.race }}</ion-col>
+            <ion-col>Class: {{ character?.class }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Level: {{ character?.level }}</ion-col>
+            <ion-col>Exp: {{ character?.exp }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Size: {{ character?.size }}</ion-col>
+            <ion-col>Background: {{ character?.background }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Alignment: {{ character?.alignment }}</ion-col>
+          </ion-row>
+          <hr />
+
+          <ion-row>
+            <ion-col>AC: {{ character?.ac }}</ion-col>
+            <ion-col>HitDice: {{ character?.level }}{{ character?.hitdice }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Proficiency Bonus: {{ character?.pb }}</ion-col>
+            <ion-col>Initiative: {{ character?.initiative }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Speed: {{ character?.landSpeed }}</ion-col>
+            <ion-col *ngIf="character?.flySpeed">Fly: {{ character?.flySpeed }}</ion-col>
+            <ion-col *ngIf="character?.swimSpeed">Swim: {{ character?.swimSpeed }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col *ngIf="character?.climbSpeed">Climb: {{ character?.climbSpeed }}</ion-col>
+            <ion-col *ngIf="character?.burrowSpeed">Burrow: {{ character?.burrowSpeed }}</ion-col>
+          </ion-row>
+          <ion-row *ngIf="character?.spellcastingAbility">
+            <ion-col>Spellcasting Modifier: {{ spellMod }}</ion-col>
+            <ion-col>Spell DC: {{ spellDC }}</ion-col>
+          </ion-row>
+
+          <hr class="spacer" />
+
+          <div padding class="underbolded">Senses:</div>
+          <div padding class="border_wrapped" *ngIf="character?.senses">{{ character?.senses }}</div>
+
+          <div padding class="underbolded">Feats:</div>
+          <div padding class="border_wrapped" *ngIf="character?.feats">{{ character?.feats }}</div>
+
+          <div padding class="underbolded">Damage Resistances:</div>
+          <div
+            padding
+            class="border_wrapped"
+            *ngIf="character?.damageResistances"
+            >{{ character?.damageResistances }}</div>
+
+          <div padding class="underbolded">Languages:</div>
+          <div padding class="border_wrapped" *ngIf="character?.languages">{{ character?.languages }}</div>
+        </ion-list>
+      </div>
+
+      <ion-item *ngSwitchCase="'attributes'">
+        <h5 class="attributesHeadings">Attributes:</h5>
+
+        <div class="bolding_underspaced">Strength: {{ character?.str }} ( {{ strmodifier }} )</div>
+        <div class="bolding_underspaced">Dexterity: {{ character?.dex }} ( {{ dexmodifier }} )</div>
+        <div class="bolding_underspaced">Constitution: {{ character?.con }} ( {{ conmodifier }} )</div>
+        <div class="bolding_underspaced">Intelligence: {{ character?.int }} ( {{ intmodifier }} )</div>
+        <div class="bolding_underspaced">Wisdom: {{ character?.wis }} ( {{ wismodifier }} )</div>
+        <div class="bolding_underspaced">Charisma: {{ character?.cha }} ( {{ chamodifier }} )</div>
+        <hr />
+
+        <h5 class="displayHeadings">Proficiencies:</h5>
+
+        <div padding class="underbolded">Saving Throws:</div>
+        <div class="bolding">Strength: [ {{ strSave }} ]</div>
+        <div class="bolding">Dexterity: [ {{ dexSave }} ]</div>
+        <div class="bolding">Constitution: [ {{ conSave }} ]</div>
+        <div class="bolding">Intelligence: [ {{ intSave }} ]</div>
+        <div class="bolding">Wisdom: [ {{ wisSave }} ]</div>
+        <div class="bolding">Charisma: [ {{ chaSave }} ]</div>
+
+        <div padding class="underbolded">Skills:</div>
+        <div class="bolding">Acrobatics: [ {{ acrProf }} ]</div>
+        <div class="bolding">Animal Handling: [ {{ aniProf }} ]</div>
+        <div class="bolding">Arcana: [ {{ arcProf }} ]</div>
+        <div class="bolding">Athletics: [ {{ athProf }} ]</div>
+        <div class="bolding">Deception: [ {{ decProf }} ]</div>
+        <div class="bolding">History: [ {{ hisProf }} ]</div>
+        <div class="bolding">Insight: [ {{ insProf }} ]</div>
+        <div class="bolding">Intimidation: [ {{ intProf }} ]</div>
+        <div class="bolding">Investigation: [ {{ invProf }} ]</div>
+        <div class="bolding">Medicine: [ {{ medProf }} ]</div>
+        <div class="bolding">Nature: [ {{ natProf }} ]</div>
+        <div class="bolding">Perception: [ {{ percProf }} ]</div>
+        <div class="bolding">Performance: [ {{ perfProf }} ]</div>
+        <div class="bolding">Persuasion: [ {{ persProf }} ]</div>
+        <div class="bolding">Religion: [ {{ relProf }} ]</div>
+        <div class="bolding">Sleight of Hand: [ {{ sleProf }} ]</div>
+        <div class="bolding">Stealth: [ {{ steProf }} ]</div>
+        <div class="bolding">Survival: [ {{ surProf }} ]</div>
+
+        <div padding class="underbolded">Armour:</div>
+        <div padding class="border_wrapped" *ngIf="character?.armourProf">{{ character?.armourProf }}</div>
+
+        <div padding class="underbolded">Weapons:</div>
+        <div padding class="border_wrapped" *ngIf="character?.weaponProf">{{ character?.weaponProf }}</div>
+
+        <div padding class="underbolded">Tools:</div>
+        <div padding class="border_wrapped" *ngIf="character?.toolProf">{{ character?.toolProf }}</div>
+      </ion-item>
+
+      <ion-item *ngSwitchCase="'details'">
+        <h5 class="displayHeadings">Details</h5>
+        <ion-row>
+          <ion-col>Gender: {{ character?.gender }}</ion-col>
+          <ion-col>Age: {{ character?.age }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Height: {{ character?.height }}</ion-col>
+          <ion-col>Weight: {{ character?.weight }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Eye Colour: {{ character?.eyeColour }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Skin Colour: {{ character?.skinColour }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Hair Colour: {{ character?.hairColour }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bolding">Defining Features:</ion-col>
+        </ion-row>
+        <div class="border_wrapped" padding>{{ character?.definingFeatures }}</div>
+        <hr class="spacer" />
+
+        <div *ngIf="character?.spellcastingAbility">
+          <h5 class="displayHeadings">Spells:</h5>
+          <div class="border_wrapped" padding>{{ character?.spells }}</div>
+          <hr class="spacer" />
+        </div>
+
+        <h5 class="displayHeadings">Notes:</h5>
+        <ion-item class="bordered">
+          <ion-textarea
+            class="white-space_wrap"
+            type="text"
+            autoresize
+            formControlName="notes1"
+            (ionBlur)="update($event)"
+          ></ion-textarea>
+        </ion-item>
+        <br/>
+        <ion-item class="bordered">
+          <ion-textarea
+            class="white-space_wrap"
+            type="text"
+            autoresize
+            formControlName="notes2"
+            (ionBlur)="update($event)"
+          ></ion-textarea>
+        </ion-item>
+      </ion-item>
+    </div>
   </form>
 
   <button ion-button round class="centering" (click)="pushEditPage()">

@@ -9,491 +9,516 @@
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Race:</ion-label>
-      <ion-input type="text" formControlName="race"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="dark">Class:</ion-label>
-      <ion-input type="text" formControlName="class"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="dark">Level:</ion-label>
-      <ion-input type="number" formControlName="level"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="dark">Exp:</ion-label>
-      <ion-input type="number" formControlName="exp"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="dark">Size:</ion-label>
-      <ion-select
-        placeholder="Select"
-        interface="popover"
-        class="sideSelectBar"
-        formControlName="size"
+    <div>
+      <ion-segment
+        [(ngModel)]="segments"
+        [ngModelOptions]="{ standalone: true }"
       >
-        <ion-option value="Tiny">Tiny</ion-option>
-        <ion-option value="Small">Small</ion-option>
-        <ion-option value="Medium">Medium</ion-option>
-        <ion-option value="Large">Large</ion-option>
-        <ion-option value="Huge">Huge</ion-option>
-      </ion-select>
-    </ion-item>
+        <ion-segment-button value="basic"> Basic </ion-segment-button>
+        <ion-segment-button value="attributes"> Attributes </ion-segment-button>
+        <ion-segment-button value="details"> Details </ion-segment-button>
+      </ion-segment>
+    </div>
 
-    <ion-item>
-      <ion-label color="dark">Background:</ion-label>
-      <ion-input type="text" formControlName="background"></ion-input>
-    </ion-item>
+    <div [ngSwitch]="segments">
+      <ion-list padding *ngSwitchCase="'basic'">
+        <ion-item>
+          <ion-label color="dark">Race:</ion-label>
+          <ion-input type="text" formControlName="race"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Alignment:</ion-label>
-      <ion-input
-        type="text"
-        formControlName="alignment"
-        placeholder="Eg. Neutral Good"
-      ></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Class:</ion-label>
+          <ion-input type="text" formControlName="class"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Max Hitpoints:</ion-label>
-      <ion-input type="number" formControlName="maxHP"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Level:</ion-label>
+          <ion-input type="number" formControlName="level"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Current Hitpoints:</ion-label>
-      <ion-input type="number" formControlName="currentHP"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Exp:</ion-label>
+          <ion-input type="number" formControlName="exp"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Hit Dice:</ion-label>
-      <ion-input
-        type="text"
-        formControlName="hitdice"
-        placeholder="Eg. d8"
-      ></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Size:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
+            formControlName="size"
+          >
+            <ion-option value="Tiny">Tiny</ion-option>
+            <ion-option value="Small">Small</ion-option>
+            <ion-option value="Medium">Medium</ion-option>
+            <ion-option value="Large">Large</ion-option>
+            <ion-option value="Huge">Huge</ion-option>
+          </ion-select>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Armour Class:</ion-label>
-      <ion-input type="number" formControlName="ac"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Background:</ion-label>
+          <ion-input type="text" formControlName="background"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Initiative:</ion-label>
-      <ion-input
-        type="number"
-        formControlName="initiative"
-        placeholder="Eg. +0"
-      ></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Alignment:</ion-label>
+          <ion-input
+            type="text"
+            formControlName="alignment"
+            placeholder="Eg. Neutral Good"
+          ></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Proficiency Bonus:</ion-label>
-      <ion-input type="number" formControlName="pb"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Max Hitpoints:</ion-label>
+          <ion-input type="number" formControlName="maxHP"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Land Speed:</ion-label>
-      <ion-input
-        type="text"
-        formControlName="landSpeed"
-        placeholder="Eg. 30ft"
-      ></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Current Hitpoints:</ion-label>
+          <ion-input type="number" formControlName="currentHP"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Fly Speed:</ion-label>
-      <ion-input type="text" formControlName="flySpeed"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Hit Dice:</ion-label>
+          <ion-input
+            type="text"
+            formControlName="hitdice"
+            placeholder="Eg. d8"
+          ></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Swim Speed:</ion-label>
-      <ion-input type="text" formControlName="swimSpeed"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Armour Class:</ion-label>
+          <ion-input type="number" formControlName="ac"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Climb Speed:</ion-label>
-      <ion-input type="text" formControlName="climbSpeed"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Initiative:</ion-label>
+          <ion-input
+            type="number"
+            formControlName="initiative"
+            placeholder="Eg. +0"
+          ></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Burrow Speed:</ion-label>
-      <ion-input type="text" formControlName="burrowSpeed"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Proficiency Bonus:</ion-label>
+          <ion-input type="number" formControlName="pb"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Spellcasting Ability:</ion-label>
-      <ion-select
-        placeholder="Select"
-        interface="popover"
-        class="sideSelectBar"
-        formControlName="spellcastingAbility"
-      >
-        <ion-option value="">None</ion-option>
-        <ion-option value="strength">Strength</ion-option>
-        <ion-option value="dexterity">Dexterity</ion-option>
-        <ion-option value="constitution">Constitution</ion-option>
-        <ion-option value="intelligence">Intelligence</ion-option>
-        <ion-option value="wisdom">Wisdom</ion-option>
-        <ion-option value="charisma">Charisma</ion-option>
-      </ion-select>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Land Speed:</ion-label>
+          <ion-input
+            type="text"
+            formControlName="landSpeed"
+            placeholder="Eg. 30ft"
+          ></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Strength:</ion-label>
-      <ion-input
-        type="number"
-        formControlName="str"
-        placeholder="Eg. 10"
-      ></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Fly Speed:</ion-label>
+          <ion-input type="text" formControlName="flySpeed"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Dexterity:</ion-label>
-      <ion-input type="number" formControlName="dex"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Swim Speed:</ion-label>
+          <ion-input type="text" formControlName="swimSpeed"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Constitution:</ion-label>
-      <ion-input type="number" formControlName="con"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Climb Speed:</ion-label>
+          <ion-input type="text" formControlName="climbSpeed"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Intelligence:</ion-label>
-      <ion-input type="number" formControlName="int"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Burrow Speed:</ion-label>
+          <ion-input type="text" formControlName="burrowSpeed"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Wisdom:</ion-label>
-      <ion-input type="number" formControlName="wis"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Spellcasting Ability:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
+            formControlName="spellcastingAbility"
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="strength">Strength</ion-option>
+            <ion-option value="dexterity">Dexterity</ion-option>
+            <ion-option value="constitution">Constitution</ion-option>
+            <ion-option value="intelligence">Intelligence</ion-option>
+            <ion-option value="wisdom">Wisdom</ion-option>
+            <ion-option value="charisma">Charisma</ion-option>
+          </ion-select>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Charisma:</ion-label>
-      <ion-input type="number" formControlName="cha"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Senses:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="senses"
+            placeholder="Eg. &quot;Darkvision 60ft&quot;"
+          ></ion-textarea>
+        </ion-item>
 
-    <h6 color="dark">Saving Throw Proficiencies:</h6>
+        <ion-item>
+          <ion-label color="dark">Feats:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="feats"
+          ></ion-textarea>
+        </ion-item>
 
-    <ion-item>
-      <ion-label>Strength Proficiency</ion-label>
-      <ion-checkbox
-        formControlName="strSaveProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Dexterity Proficiency</ion-label>
-      <ion-checkbox
-        formControlName="dexSaveProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Constitution Proficiency</ion-label>
-      <ion-checkbox
-        formControlName="conSaveProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Intelligence Proficiency</ion-label>
-      <ion-checkbox
-        formControlName="intSaveProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Wisdom Proficiency</ion-label>
-      <ion-checkbox
-        formControlName="wisSaveProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Charisma Proficiency</ion-label>
-      <ion-checkbox
-        formControlName="chaSaveProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Damage Resistances:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="damageResistances"
+            placeholder="Eg. Slashing, Fire"
+          ></ion-textarea>
+        </ion-item>
 
-    <h6 color="dark">Skill Proficiencies:</h6>
+        <ion-item>
+          <ion-label color="dark">Languages:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="languages"
+            placeholder="Eg. Common"
+          ></ion-textarea>
+        </ion-item>
+      </ion-list>
 
-    <ion-item>
-      <ion-label>Acrobatics</ion-label>
-      <ion-checkbox
-        formControlName="acrobaticsProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Animal Handling</ion-label>
-      <ion-checkbox
-        formControlName="animalHandlingProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Arcana</ion-label>
-      <ion-checkbox formControlName="arcanaProf" color="primary"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Athletics</ion-label>
-      <ion-checkbox
-        formControlName="athleticsProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Deception</ion-label>
-      <ion-checkbox
-        formControlName="deceptionProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>History</ion-label>
-      <ion-checkbox
-        formControlName="historyProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Insight</ion-label>
-      <ion-checkbox
-        formControlName="insightProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Intimidation</ion-label>
-      <ion-checkbox
-        formControlName="intimidationProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Investigation</ion-label>
-      <ion-checkbox
-        formControlName="investigationProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Medicine</ion-label>
-      <ion-checkbox
-        formControlName="medicineProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Nature</ion-label>
-      <ion-checkbox formControlName="natureProf" color="primary"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Perception</ion-label>
-      <ion-checkbox
-        formControlName="perceptionProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Performance</ion-label>
-      <ion-checkbox
-        formControlName="performanceProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Persuasion</ion-label>
-      <ion-checkbox
-        formControlName="persuasionProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Religion</ion-label>
-      <ion-checkbox
-        formControlName="religionProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Sleight of Hand</ion-label>
-      <ion-checkbox
-        formControlName="sleightofhandProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Stealth</ion-label>
-      <ion-checkbox
-        formControlName="stealthProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Survival</ion-label>
-      <ion-checkbox
-        formControlName="survivalProf"
-        color="primary"
-      ></ion-checkbox>
-    </ion-item>
+      <ion-list padding *ngSwitchCase="'attributes'">
+        <ion-item>
+          <ion-label color="dark">Strength:</ion-label>
+          <ion-input
+            type="number"
+            formControlName="str"
+            placeholder="Eg. 10"
+          ></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Armour Proficiencies:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="armourProf"
-        placeholder="Eg. Light, Medium, Heavy, Shield"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Dexterity:</ion-label>
+          <ion-input type="number" formControlName="dex"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Weapon Proficiencies:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="weaponProf"
-        placeholder="Eg. Martial, Longsword, Hand Crossbow"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Constitution:</ion-label>
+          <ion-input type="number" formControlName="con"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Tool Proficiencies:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="toolProf"
-        placeholder="Eg. Alchemist kit"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Intelligence:</ion-label>
+          <ion-input type="number" formControlName="int"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Senses:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="senses"
-        placeholder="Eg. &quot;Darkvision 60ft&quot;"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Wisdom:</ion-label>
+          <ion-input type="number" formControlName="wis"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Feats:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="feats"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Charisma:</ion-label>
+          <ion-input type="number" formControlName="cha"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Damage Resistances:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="damageResistances"
-        placeholder="Eg. Slashing, Fire"
-      ></ion-textarea>
-    </ion-item>
+        <h6 color="dark">Saving Throw Proficiencies:</h6>
 
-    <ion-item>
-      <ion-label color="dark">Languages:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="languages"
-        placeholder="Eg. Common"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label>Strength Proficiency</ion-label>
+          <ion-checkbox
+            formControlName="strSaveProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Dexterity Proficiency</ion-label>
+          <ion-checkbox
+            formControlName="dexSaveProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Constitution Proficiency</ion-label>
+          <ion-checkbox
+            formControlName="conSaveProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Intelligence Proficiency</ion-label>
+          <ion-checkbox
+            formControlName="intSaveProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Wisdom Proficiency</ion-label>
+          <ion-checkbox
+            formControlName="wisSaveProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Charisma Proficiency</ion-label>
+          <ion-checkbox
+            formControlName="chaSaveProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Gender:</ion-label>
-      <ion-input type="text" formControlName="gender"></ion-input>
-    </ion-item>
+        <h6 color="dark">Skill Proficiencies:</h6>
 
-    <ion-item>
-      <ion-label color="dark">Age:</ion-label>
-      <ion-input type="number" formControlName="age"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label>Acrobatics</ion-label>
+          <ion-checkbox
+            formControlName="acrobaticsProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Animal Handling</ion-label>
+          <ion-checkbox
+            formControlName="animalHandlingProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Arcana</ion-label>
+          <ion-checkbox
+            formControlName="arcanaProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Athletics</ion-label>
+          <ion-checkbox
+            formControlName="athleticsProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Deception</ion-label>
+          <ion-checkbox
+            formControlName="deceptionProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>History</ion-label>
+          <ion-checkbox
+            formControlName="historyProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Insight</ion-label>
+          <ion-checkbox
+            formControlName="insightProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Intimidation</ion-label>
+          <ion-checkbox
+            formControlName="intimidationProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Investigation</ion-label>
+          <ion-checkbox
+            formControlName="investigationProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Medicine</ion-label>
+          <ion-checkbox
+            formControlName="medicineProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nature</ion-label>
+          <ion-checkbox
+            formControlName="natureProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Perception</ion-label>
+          <ion-checkbox
+            formControlName="perceptionProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Performance</ion-label>
+          <ion-checkbox
+            formControlName="performanceProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Persuasion</ion-label>
+          <ion-checkbox
+            formControlName="persuasionProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Religion</ion-label>
+          <ion-checkbox
+            formControlName="religionProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Sleight of Hand</ion-label>
+          <ion-checkbox
+            formControlName="sleightofhandProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Stealth</ion-label>
+          <ion-checkbox
+            formControlName="stealthProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Survival</ion-label>
+          <ion-checkbox
+            formControlName="survivalProf"
+            color="primary"
+          ></ion-checkbox>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Height:</ion-label>
-      <ion-input
-        type="text"
-        formControlName="height"
-        placeholder="Eg. 1.8m"
-      ></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Armour Proficiencies:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="armourProf"
+            placeholder="Eg. Light, Medium, Heavy, Shield"
+          ></ion-textarea>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Weight:</ion-label>
-      <ion-input
-        type="text"
-        formControlName="weight"
-        placeholder="Eg. 60kg"
-      ></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Weapon Proficiencies:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="weaponProf"
+            placeholder="Eg. Martial, Longsword, Hand Crossbow"
+          ></ion-textarea>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Eye Colour:</ion-label>
-      <ion-input type="text" formControlName="eyeColour"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Tool Proficiencies:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="toolProf"
+            placeholder="Eg. Alchemist kit"
+          ></ion-textarea>
+        </ion-item>
+      </ion-list>
 
-    <ion-item>
-      <ion-label color="dark">Skin Colour:</ion-label>
-      <ion-input type="text" formControlName="skinColour"></ion-input>
-    </ion-item>
+      <ion-list padding *ngSwitchCase="'details'">
+        <ion-item>
+          <ion-label color="dark">Gender:</ion-label>
+          <ion-input type="text" formControlName="gender"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Hair Colour:</ion-label>
-      <ion-input type="text" formControlName="hairColour"></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Age:</ion-label>
+          <ion-input type="number" formControlName="age"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Defining Features:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="definingFeatures"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Height:</ion-label>
+          <ion-input
+            type="text"
+            formControlName="height"
+            placeholder="Eg. 1.8m"
+          ></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Spells:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="spells"
-        placeholder="Insert notes or reminders about your spells"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Weight:</ion-label>
+          <ion-input
+            type="text"
+            formControlName="weight"
+            placeholder="Eg. 60kg"
+          ></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Notes 1:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="notes1"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Eye Colour:</ion-label>
+          <ion-input type="text" formControlName="eyeColour"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label color="dark">Notes 2:</ion-label>
-      <ion-textarea
-        autoresize
-        type="text"
-        formControlName="notes2"
-      ></ion-textarea>
-    </ion-item>
+        <ion-item>
+          <ion-label color="dark">Skin Colour:</ion-label>
+          <ion-input type="text" formControlName="skinColour"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark">Hair Colour:</ion-label>
+          <ion-input type="text" formControlName="hairColour"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark">Defining Features:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="definingFeatures"
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark">Spells:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="spells"
+            placeholder="Insert notes or reminders about your spells"
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark">Notes 1:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="notes1"
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark">Notes 2:</ion-label>
+          <ion-textarea
+            autoresize
+            type="text"
+            formControlName="notes2"
+          ></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </div>
 
     <ion-row>
       <ion-col>

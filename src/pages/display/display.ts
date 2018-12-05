@@ -50,6 +50,7 @@ export class DisplayPage {
   public sleProf;
   public steProf;
   public surProf;
+  public segments;
   private displayCharacterForm: FormGroup;
 
   constructor(
@@ -61,6 +62,8 @@ export class DisplayPage {
   ) {
     this.character = this.navParams.get("character");
     console.log(this.character);
+
+    this.segments = "basic"
 
     this.displayCharacterForm = this.formbuilder.group({
       id: this.character.id,

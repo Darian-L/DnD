@@ -13,6 +13,7 @@ import { Autosize } from '../../providers/autosize';
 export class EditPage {
   public characters;
   public character;
+  public segments;
   private characterForm: FormGroup;
 
   constructor(
@@ -25,6 +26,8 @@ export class EditPage {
   ) {
     this.character = this.navParams.get("character");
     console.log(this.character);
+
+    this.segments = "basic"
 
     this.characterForm = this.formbuilder.group({
       id: this.character.id,

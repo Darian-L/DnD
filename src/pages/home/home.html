@@ -40,7 +40,7 @@
   <h3 class="homePageHeadings">Characters:</h3>
   <ion-list>
     <ion-item *ngFor="let character of characters;let i = index" (click)="pushDisplayPage(i)">
-      {{ character.name }}
+      <span class="bullet"></span>{{ character.name }}
     </ion-item>
   </ion-list>
   <button ion-button round (click)="createNewCharacter()" class="resourceButtons">Add New</button>

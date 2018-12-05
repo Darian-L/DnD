@@ -15,6 +15,7 @@ export class CreatePage {
   private newCharacterForm: FormGroup;
   public guidID;
   public characters;
+  public segments;
 
   constructor(
     public navCtrl: NavController,
@@ -27,6 +28,8 @@ export class CreatePage {
   ) {
     this.guidID = this.guid.generateGuid();
     console.log(this.guidID);
+
+    this.segments = "basic"
 
     this.newCharacterForm = this.formbuilder.group({
       id: this.guidID,
