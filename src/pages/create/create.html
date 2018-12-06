@@ -14,14 +14,20 @@
         [(ngModel)]="segments"
         [ngModelOptions]="{ standalone: true }"
       >
-        <ion-segment-button value="basic"> Basic </ion-segment-button>
-        <ion-segment-button value="attributes"> Attributes </ion-segment-button>
-        <ion-segment-button value="details"> Details </ion-segment-button>
+        <ion-segment-button value="0" (click)="selectedTab(0)">
+          Basic
+        </ion-segment-button>
+        <ion-segment-button value="1" (click)="selectedTab(1)">
+          Attributes
+        </ion-segment-button>
+        <ion-segment-button value="2" (click)="selectedTab(2)">
+          Details
+        </ion-segment-button>
       </ion-segment>
     </div>
 
-    <div [ngSwitch]="segments">
-      <ion-list padding *ngSwitchCase="'basic'">
+    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+      <ion-slide>
         <ion-item>
           <ion-label color="dark">Race:</ion-label>
           <ion-input type="text" formControlName="race"></ion-input>
@@ -195,9 +201,22 @@
             placeholder="Eg. Common"
           ></ion-textarea>
         </ion-item>
-      </ion-list>
 
-      <ion-list padding *ngSwitchCase="'attributes'">
+        <ion-row>
+          <ion-col>
+            <div class="updateButton">
+              <button ion-button round (click)="saveCreate()">Save</button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="updateButton">
+              <button ion-button round (click)="cancelCreate()">Cancel</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-slide>
+
+      <ion-slide>
         <ion-item>
           <ion-label color="dark">Strength:</ion-label>
           <ion-input
@@ -235,175 +254,319 @@
         <h6 color="dark">Saving Throw Proficiencies:</h6>
 
         <ion-item>
-          <ion-label>Strength Proficiency</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Strength Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="strSaveProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Dexterity Proficiency</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Dexterity Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="dexSaveProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Constitution Proficiency</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Constitution Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="conSaveProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Intelligence Proficiency</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Intelligence Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="intSaveProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Wisdom Proficiency</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Wisdom Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="wisSaveProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Charisma Proficiency</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Charisma Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="chaSaveProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
 
         <h6 color="dark">Skill Proficiencies:</h6>
 
         <ion-item>
-          <ion-label>Acrobatics</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Acrobatics Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="acrobaticsProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Animal Handling</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Animal Handling Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="animalHandlingProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Arcana</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Arcana Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="arcanaProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Athletics</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Athletics Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="athleticsProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Deception</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Deception Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="deceptionProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>History</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">History Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="historyProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Insight</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Insight Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="insightProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Intimidation</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Intimidation Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="intimidationProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Investigation</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Investigation Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="investigationProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Medicine</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Medicine Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="medicineProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Nature</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Nature Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="natureProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Perception</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Perception Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="perceptionProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Performance</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Performance Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="performanceProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Persuasion</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Persuasion Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="persuasionProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Religion</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Religion Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="religionProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Sleight of Hand</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Sleight of Hand Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="sleightofhandProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Stealth</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Stealth Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="stealthProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Survival</ion-label>
-          <ion-checkbox
+          <ion-label color="dark">Survival Proficiency:</ion-label>
+          <ion-select
+            placeholder="Select"
+            interface="popover"
+            class="sideSelectBar"
             formControlName="survivalProf"
-            color="primary"
-          ></ion-checkbox>
+          >
+            <ion-option value="">None</ion-option>
+            <ion-option value="single">Proficient</ion-option>
+            <ion-option value="double">Double Proficient</ion-option>
+          </ion-select>
         </ion-item>
 
         <ion-item>
@@ -435,9 +598,22 @@
             placeholder="Eg. Alchemist kit"
           ></ion-textarea>
         </ion-item>
-      </ion-list>
 
-      <ion-list padding *ngSwitchCase="'details'">
+        <ion-row>
+          <ion-col>
+            <div class="updateButton">
+              <button ion-button round (click)="saveCreate()">Save</button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="updateButton">
+              <button ion-button round (click)="cancelCreate()">Cancel</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-slide>
+
+      <ion-slide>
         <ion-item>
           <ion-label color="dark">Gender:</ion-label>
           <ion-input type="text" formControlName="gender"></ion-input>
@@ -517,20 +693,20 @@
             formControlName="notes2"
           ></ion-textarea>
         </ion-item>
-      </ion-list>
-    </div>
 
-    <ion-row>
-      <ion-col>
-        <div class="updateButton">
-          <button ion-button round (click)="saveCreate()">Save</button>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div class="updateButton">
-          <button ion-button round (click)="cancelCreate()">Cancel</button>
-        </div>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="updateButton">
+              <button ion-button round (click)="saveCreate()">Save</button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="updateButton">
+              <button ion-button round (click)="cancelCreate()">Cancel</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
   </form>
 </ion-content>

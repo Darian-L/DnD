@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { NavController, NavParams, ToastController } from "ionic-angular";
+import { Component, ViewChild } from "@angular/core";
+import { NavController, NavParams, ToastController, Slides, Content } from "ionic-angular";
 import { AlertController } from "ionic-angular";
 import { DisplayPage } from "../display/display";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
@@ -12,6 +12,9 @@ import { Autosize } from '../../providers/autosize';
   templateUrl: "create.html"
 })
 export class CreatePage {
+  @ViewChild('slider') slider: Slides;
+  @ViewChild(Content) content: Content;
+
   private newCharacterForm: FormGroup;
   public guidID;
   public characters;
@@ -29,7 +32,7 @@ export class CreatePage {
     this.guidID = this.guid.generateGuid();
     console.log(this.guidID);
 
-    this.segments = "basic"
+    this.segments = "0"
 
     this.newCharacterForm = this.formbuilder.group({
       id: this.guidID,
@@ -102,6 +105,19 @@ export class CreatePage {
       notes1: [""],
       notes2: [""],
     });
+  }
+
+  selectedTab(ind) {
+    this.slider.slideTo(ind)
+  }
+
+  ngAfterViewInit() {
+    this.slider.autoHeight = true;
+  }
+
+  moveButton($event) {
+    this.content.scrollToTop(1000);
+    this.segments = $event._snapIndex.toString()
   }
 
   saveCreate() {

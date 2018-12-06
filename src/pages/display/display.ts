@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { Component, ViewChild } from "@angular/core";
+import { NavController, NavParams, Slides, Content } from "ionic-angular";
 import { AlertController } from "ionic-angular";
 import { EditPage } from "../edit/edit";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
@@ -12,6 +12,9 @@ import { templateJitUrl } from "@angular/compiler";
   templateUrl: "display.html"
 })
 export class DisplayPage {
+  @ViewChild('slider') slider: Slides;
+  @ViewChild(Content) content: Content;
+
   public characters;
   public diceRoll;
   public selectedSides: any = "A";
@@ -63,7 +66,7 @@ export class DisplayPage {
     this.character = this.navParams.get("character");
     console.log(this.character);
 
-    this.segments = "basic"
+    this.segments = "0"
 
     this.displayCharacterForm = this.formbuilder.group({
       id: this.character.id,
@@ -138,6 +141,19 @@ export class DisplayPage {
     });
   }
 
+  selectedTab(ind) {
+    this.slider.slideTo(ind)
+  }
+
+  ngAfterViewInit() {
+    this.slider.autoHeight = true;
+  }
+
+  moveButton($event) {
+    this.content.scrollToTop(1000);
+    this.segments = $event._snapIndex.toString()
+  }
+
   ionViewDidLoad() {
     this.character = this.navParams.get("character");
 
@@ -160,126 +176,318 @@ export class DisplayPage {
       this.chamodifier = Math.floor((this.character.cha - 10) / 2);
     }
 
-    if (this.character.strSaveProf == true) {
-      this.strSave = this.strmodifier + Number(this.character.pb);
-    } else {
-      this.strSave = this.strmodifier;
+    switch (this.character.strSaveProf) {
+      case "single": {
+        this.strSave = this.strmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.strSave = this.strmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.strSave = this.strmodifier;
+      }
     }
-    if (this.character.dexSaveProf == true) {
-      this.dexSave = this.dexmodifier + Number(this.character.pb);
-    } else {
-      this.dexSave = this.dexmodifier;
+    switch (this.character.dexSaveProf) {
+      case "single": {
+        this.dexSave = this.dexmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.dexSave = this.dexmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.dexSave = this.dexmodifier;
+      }
     }
-    if (this.character.conSaveProf == true) {
-      this.conSave = this.conmodifier + Number(this.character.pb);
-    } else {
-      this.conSave = this.conmodifier;
+    switch (this.character.conSaveProf) {
+      case "single": {
+        this.conSave = this.conmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.conSave = this.conmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.conSave = this.conmodifier;
+      }
     }
-    if (this.character.intSaveProf == true) {
-      this.intSave = this.intmodifier + Number(this.character.pb);
-    } else {
-      this.intSave = this.intmodifier;
+    switch (this.character.intSaveProf) {
+      case "single": {
+        this.intSave = this.intmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.intSave = this.intmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.intSave = this.intmodifier;
+      }
     }
-    if (this.character.wisSaveProf == true) {
-      this.wisSave = this.wismodifier + Number(this.character.pb);
-    } else {
-      this.wisSave = this.wismodifier;
+    switch (this.character.wisSaveProf) {
+      case "single": {
+        this.wisSave = this.wismodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.wisSave = this.wismodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.wisSave = this.wismodifier;
+      }
     }
-    if (this.character.chaSaveProf == true) {
-      this.chaSave = this.chamodifier + Number(this.character.pb);
-    } else {
-      this.chaSave = this.chamodifier;
+    switch (this.character.chaSaveProf) {
+      case "single": {
+        this.chaSave = this.chamodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.chaSave = this.chamodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.chaSave = this.chamodifier;
+      }
     }
 
-    if (this.character.acrobaticsProf == true) {
-      this.acrProf = this.dexmodifier + Number(this.character.pb);
-    } else {
-      this.acrProf = this.dexmodifier;
+    switch (this.character.acrobaticsProf) {
+      case "single": {
+        this.acrProf = this.dexmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.acrProf = this.dexmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.acrProf = this.dexmodifier;
+      }
     }
-    if (this.character.animalHandlingProf == true) {
-      this.aniProf = this.wismodifier + Number(this.character.pb);
-    } else {
-      this.aniProf = this.wismodifier;
+    switch (this.character.animalHandlingProf) {
+      case "single": {
+        this.aniProf = this.wismodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.aniProf = this.wismodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.aniProf = this.wismodifier;
+      }
     }
-    if (this.character.arcanaProf == true) {
-      this.arcProf = this.intmodifier + Number(this.character.pb);
-    } else {
-      this.arcProf = this.intmodifier;
+    switch (this.character.arcanaProf) {
+      case "single": {
+        this.arcProf = this.intmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.arcProf = this.intmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.arcProf = this.intmodifier;
+      }
     }
-    if (this.character.athleticsProf == true) {
-      this.athProf = this.strmodifier + Number(this.character.pb);
-    } else {
-      this.athProf = this.strmodifier;
+    switch (this.character.athleticsProf) {
+      case "single": {
+        this.athProf = this.strmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.athProf = this.strmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.athProf = this.strmodifier;
+      }
     }
-    if (this.character.deceptionProf == true) {
-      this.decProf = this.chamodifier + Number(this.character.pb);
-    } else {
-      this.decProf = this.chamodifier;
+    switch (this.character.deceptionProf) {
+      case "single": {
+        this.decProf = this.chamodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.decProf = this.chamodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.decProf = this.chamodifier;
+      }
     }
-    if (this.character.historyProf == true) {
-      this.hisProf = this.intmodifier + Number(this.character.pb);
-    } else {
-      this.hisProf = this.intmodifier;
+    switch (this.character.historyProf) {
+      case "single": {
+        this.hisProf = this.intmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.hisProf = this.intmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.hisProf = this.intmodifier;
+      }
     }
-    if (this.character.insightProf == true) {
-      this.insProf = this.wismodifier + Number(this.character.pb);
-    } else {
-      this.insProf = this.wismodifier;
+    switch (this.character.insightProf) {
+      case "single": {
+        this.insProf = this.wismodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.insProf = this.wismodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.insProf = this.wismodifier;
+      }
     }
-    if (this.character.intimidationProf == true) {
-      this.intProf = this.chamodifier + Number(this.character.pb);
-    } else {
-      this.intProf = this.chamodifier;
+    switch (this.character.intimidationProf) {
+      case "single": {
+        this.intProf = this.chamodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.intProf = this.chamodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.intProf = this.chamodifier;
+      }
     }
-    if (this.character.investigationProf == true) {
-      this.invProf = this.intmodifier + Number(this.character.pb);
-    } else {
-      this.invProf = this.intmodifier;
+    switch (this.character.investigationProf) {
+      case "single": {
+        this.invProf = this.intmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.invProf = this.intmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.invProf = this.intmodifier;
+      }
     }
-    if (this.character.medicineProf == true) {
-      this.medProf = this.wismodifier + Number(this.character.pb);
-    } else {
-      this.medProf = this.wismodifier;
+    switch (this.character.medicineProf) {
+      case "single": {
+        this.medProf = this.wismodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.medProf = this.wismodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.medProf = this.wismodifier;
+      }
     }
-    if (this.character.natureProf == true) {
-      this.natProf = this.intmodifier + Number(this.character.pb);
-    } else {
-      this.natProf = this.intmodifier;
+    switch (this.character.natureProf) {
+      case "single": {
+        this.natProf = this.intmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.natProf = this.intmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.natProf = this.intmodifier;
+      }
     }
-    if (this.character.perceptionProf == true) {
-      this.percProf = this.wismodifier + Number(this.character.pb);
-    } else {
-      this.percProf = this.wismodifier;
+    switch (this.character.perceptionProf) {
+      case "single": {
+        this.percProf = this.wismodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.percProf = this.wismodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.percProf = this.wismodifier;
+      }
     }
-    if (this.character.performanceProf == true) {
-      this.perfProf = this.chamodifier + Number(this.character.pb);
-    } else {
-      this.perfProf = this.chamodifier;
+    switch (this.character.performanceProf) {
+      case "single": {
+        this.perfProf = this.chamodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.perfProf = this.chamodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.perfProf = this.chamodifier;
+      }
     }
-    if (this.character.persuasionProf == true) {
-      this.persProf = this.chamodifier + Number(this.character.pb);
-    } else {
-      this.persProf = this.chamodifier;
+    switch (this.character.persuasionProf) {
+      case "single": {
+        this.persProf = this.chamodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.persProf = this.chamodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.persProf = this.chamodifier;
+      }
     }
-    if (this.character.religionProf == true) {
-      this.relProf = this.intmodifier + Number(this.character.pb);
-    } else {
-      this.relProf = this.intmodifier;
+    switch (this.character.religionProf) {
+      case "single": {
+        this.relProf = this.intmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.relProf = this.intmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.relProf = this.intmodifier;
+      }
     }
-    if (this.character.sleightofhandProf == true) {
-      this.sleProf = this.dexmodifier + Number(this.character.pb);
-    } else {
-      this.sleProf = this.dexmodifier;
+    switch (this.character.sleightofhandProf) {
+      case "single": {
+        this.sleProf = this.dexmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.sleProf = this.dexmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.sleProf = this.dexmodifier;
+      }
     }
-    if (this.character.stealthProf == true) {
-      this.steProf = this.dexmodifier + Number(this.character.pb);
-    } else {
-      this.steProf = this.dexmodifier;
+    switch (this.character.stealthProf) {
+      case "single": {
+        this.steProf = this.dexmodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.steProf = this.dexmodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.steProf = this.dexmodifier;
+      }
     }
-    if (this.character.survivalProf == true) {
-      this.surProf = this.wismodifier + Number(this.character.pb);
-    } else {
-      this.surProf = this.wismodifier;
+    switch (this.character.survivalProf) {
+      case "single": {
+        this.surProf = this.wismodifier + Number(this.character.pb);
+        break;
+      }
+      case "double": {
+        this.surProf = this.wismodifier + (Number(this.character.pb)*2);
+        break;
+      }
+      default: {
+        this.surProf = this.wismodifier;
+      }
     }
 
     switch (this.character.spellcastingAbility) {

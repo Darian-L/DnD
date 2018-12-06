@@ -38,15 +38,16 @@
         [(ngModel)]="segments"
         [ngModelOptions]="{ standalone: true }"
       >
-        <ion-segment-button value="basic"> Basic </ion-segment-button>
-        <ion-segment-button value="attributes"> Attributes </ion-segment-button>
-        <ion-segment-button value="details"> Details </ion-segment-button>
+      <ion-segment-button value="0" (click)="selectedTab(0)"> Basic </ion-segment-button>
+      <ion-segment-button value="1" (click)="selectedTab(1)"> Attributes </ion-segment-button>
+      <ion-segment-button value="2" (click)="selectedTab(2)"> Details </ion-segment-button>
       </ion-segment>
     </div>
 
-    <div [ngSwitch]="segments">
-      <div padding *ngSwitchCase="'basic'">
-        <ion-list>
+    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+
+        <ion-slide>
+          <ion-list padding>
           <ion-row>
             <ion-col col-2>HP:</ion-col>
             <ion-col col-2>
@@ -118,9 +119,10 @@
           <div padding class="underbolded">Languages:</div>
           <div padding class="border_wrapped" *ngIf="character?.languages">{{ character?.languages }}</div>
         </ion-list>
-      </div>
+      </ion-slide>
 
-      <ion-item *ngSwitchCase="'attributes'">
+    <ion-slide>
+      <ion-item>
         <h5 class="attributesHeadings">Attributes:</h5>
 
         <div class="bolding_underspaced">Strength: {{ character?.str }} ( {{ strmodifier }} )</div>
@@ -169,9 +171,11 @@
 
         <div padding class="underbolded">Tools:</div>
         <div padding class="border_wrapped" *ngIf="character?.toolProf">{{ character?.toolProf }}</div>
-      </ion-item>
+        </ion-item>
+      </ion-slide>
 
-      <ion-item *ngSwitchCase="'details'">
+    <ion-slide>
+      <ion-item>
         <h5 class="displayHeadings">Details</h5>
         <ion-row>
           <ion-col>Gender: {{ character?.gender }}</ion-col>
@@ -223,7 +227,8 @@
           ></ion-textarea>
         </ion-item>
       </ion-item>
-    </div>
+      </ion-slide>
+    </ion-slides>
   </form>
 
   <button ion-button round class="centering" (click)="pushEditPage()">

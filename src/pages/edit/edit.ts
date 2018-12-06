@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { NavController, NavParams, ToastController } from "ionic-angular";
+import { Component, ViewChild } from "@angular/core";
+import { NavController, NavParams, ToastController, Slides, Content } from "ionic-angular";
 import { AlertController } from "ionic-angular";
 import { DisplayPage } from "../display/display";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
@@ -11,6 +11,9 @@ import { Autosize } from '../../providers/autosize';
   templateUrl: "edit.html"
 })
 export class EditPage {
+  @ViewChild('slider') slider: Slides;
+  @ViewChild(Content) content: Content;
+
   public characters;
   public character;
   public segments;
@@ -27,7 +30,7 @@ export class EditPage {
     this.character = this.navParams.get("character");
     console.log(this.character);
 
-    this.segments = "basic"
+    this.segments = "0"
 
     this.characterForm = this.formbuilder.group({
       id: this.character.id,
@@ -102,8 +105,17 @@ export class EditPage {
     });
   }
 
-  logForm() {
-    console.log(this.characterForm.value);
+  selectedTab(ind) {
+    this.slider.slideTo(ind)
+  }
+
+  ngAfterViewInit() {
+    this.slider.autoHeight = true;
+  }
+
+  moveButton($event) {
+    this.content.scrollToTop(1000);
+    this.segments = $event._snapIndex.toString()
   }
 
   saveEdit() {
