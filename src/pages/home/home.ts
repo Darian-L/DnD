@@ -32,7 +32,7 @@ export class HomePage {
   ionViewWillEnter() {
     this.characters = JSON.parse(this.appRepo.load("characters"));
   }
-
+//TODO: Implement multiple dice rolling
   roll() {
     console.log(
       (this.diceRoll = Math.floor(Math.random() * this.selectedSides) + 1)

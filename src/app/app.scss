@@ -15,8 +15,6 @@ ion-navbar{
   color: map-get($colors, primary);
 }}
 
-
-// TODO figure out scaling and where bar between div and content comes from(probably padding)
 .topBar {
     position: fixed;
     width: 100%;

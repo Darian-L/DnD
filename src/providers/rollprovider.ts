@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
 
 @Injectable()
-
-
-
+//TODO: Complete this provider
 export class RollProvider {
 
     public diceRoll;
@@ -72,7 +69,7 @@ export class RollProvider {
               console.log("Fumble");
               alert.present()
             }
-    
+
             else {
               if (this.diceRoll == this.selectedSides) {
                 let alert = this.alertCtrl.create({
@@ -97,10 +94,10 @@ export class RollProvider {
           }
         }
       }
-    
+
       rollCustom() {
         console.log(this.diceRoll = Math.floor(Math.random() * this.customSides) + 1)
-    
+
         if (this.diceRoll == '1') {
           let alert = this.alertCtrl.create({
             title: 'd' + this.customSides + ' roll=',
@@ -133,10 +130,10 @@ export class RollProvider {
           }
         }
       }
-    
+
       rollSpecified(sides) {
         console.log(this.diceRoll = Math.floor(Math.random() * sides) + 1)
-    
+
         if (this.diceRoll == '1') {
           let alert = this.alertCtrl.create({
             title: 'd' + sides + ' roll=',
