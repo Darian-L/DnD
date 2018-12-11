@@ -17,7 +17,7 @@ import { summaryFileName } from "@angular/compiler/src/aot/util";
 export class HomePage {
   public diceRoll;
   public multiple;
-  public selectedSides: any = "A";
+  public selectedSides;
   public customSides;
   public sides;
   public characters;
@@ -35,6 +35,7 @@ export class HomePage {
   ionViewWillEnter() {
     this.characters = JSON.parse(this.appRepo.load("characters"));
     this.multiple = 1;
+    this.selectedSides = "A"
   }
 
   roll() {
