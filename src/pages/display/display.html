@@ -120,6 +120,17 @@
 
           <div padding class="underbolded">Languages:</div>
           <div padding class="border_wrapped" *ngIf="character?.languages">{{ character?.languages }}</div>
+
+          <div padding class="underbolded">Weapons:</div>
+          <div padding class="border_wrapped" *ngIf="character?.weapons">{{ character?.weapons }}</div>
+
+          <div padding class="underbolded">Armour:</div>
+          <div padding class="border_wrapped" *ngIf="character?.armour">{{ character?.armour }}</div>
+
+          <div padding class="underbolded">Equipment:</div>
+          <div padding class="border_wrapped" *ngIf="character?.equipment">{{ character?.equipment }}</div>
+
+
         </ion-list>
       </ion-slide>
 
