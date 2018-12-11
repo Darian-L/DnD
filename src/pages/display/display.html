@@ -1,21 +1,23 @@
 <ion-navbar class="topBar">
   <ion-row nowrap justify-content-around>
-    <ion-col col-3 class="sidesLabel"> <ion-label>Sides:</ion-label> </ion-col>
+    <ion-col col-2>
+      <ion-input color="primary" class="sidesLabel" type="number" [(ngModel)]="multiple"></ion-input>
+    </ion-col>
 
     <ion-col col-5>
       <ion-item>
         <ion-select
           [(ngModel)]="selectedSides"
-          placeholder="Select"
+          placeholder="Sides"
           interface="popover"
           class="sideSelectBar"
         >
-          <ion-option value="4"> 4 </ion-option>
-          <ion-option value="6"> 6 </ion-option>
-          <ion-option value="8"> 8 </ion-option>
-          <ion-option value="10"> 10 </ion-option>
-          <ion-option value="12"> 12 </ion-option>
-          <ion-option value="20"> 20 </ion-option>
+          <ion-option value="4"> d4 </ion-option>
+          <ion-option value="6"> d6 </ion-option>
+          <ion-option value="8"> d8 </ion-option>
+          <ion-option value="10"> d10 </ion-option>
+          <ion-option value="12"> d12 </ion-option>
+          <ion-option value="20"> d20 </ion-option>
           <ion-option value="0"> Custom </ion-option>
         </ion-select>
       </ion-item>
@@ -31,7 +33,7 @@
 
 <ion-content padding class="content">
   <form [formGroup]="displayCharacterForm">
-    <h3>Name: {{ character?.name }}</h3>
+    <h3>{{ character?.name }}</h3>
 
     <div>
       <ion-segment

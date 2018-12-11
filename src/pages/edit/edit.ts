@@ -106,10 +106,10 @@ export class EditPage {
   }
 
   selectedTab(ind) {
-    this.slider.slideTo(ind)
+    this.slider.slideTo(ind);
   }
-
-  ngAfterViewInit() {
+ //TODO: Content not fully loading before height decided before first slide change
+  ionViewDidLoad() {
     this.slider.autoHeight = true;
   }
 

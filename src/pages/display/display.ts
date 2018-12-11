@@ -2,7 +2,7 @@ import { Component, ViewChild } from "@angular/core";
 import { NavController, NavParams, Slides, Content } from "ionic-angular";
 import { AlertController } from "ionic-angular";
 import { EditPage } from "../edit/edit";
-import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { Repository } from "../../providers/repository";
 import { Autosize } from "../../providers/autosize";
 import { templateJitUrl } from "@angular/compiler";
@@ -16,10 +16,12 @@ export class DisplayPage {
   @ViewChild(Content) content: Content;
 
   public characters;
+  public multiple = 1;
   public diceRoll;
   public selectedSides: any = "A";
   public customSides;
   public sides;
+  public results = [];
   public character;
   public strmodifier;
   public dexmodifier;
@@ -156,6 +158,7 @@ export class DisplayPage {
 
   ionViewDidLoad() {
     this.character = this.navParams.get("character");
+    this.multiple = 1;
 
     if (this.character.str != "") {
       this.strmodifier = Math.floor((this.character.str - 10) / 2);
@@ -537,18 +540,26 @@ export class DisplayPage {
   }
 
   roll() {
+
+    this.results = [];
+
+    if (this.multiple == 1) {
     console.log(
       (this.diceRoll = Math.floor(Math.random() * this.selectedSides) + 1)
     );
-    if (this.selectedSides == "A") {
+    console.log(this.multiple + " multiple 1")
+
+    switch (this.selectedSides) {
+    case "A": {
       let alert = this.alertCtrl.create({
         title: "Error",
         message: "Choose a number of sides.",
         buttons: ["Close"]
       });
       alert.present();
-    } else {
-      if (this.selectedSides == "0") {
+      break;
+    }
+      case "0": {
         let alert = this.alertCtrl.create({
           title: "Custom Roll",
           message: "Insert custom number of sides",
@@ -581,20 +592,21 @@ export class DisplayPage {
         });
         console.log("Custom");
         alert.present();
-      } else {
+        break;
+      } default: {
         if (this.diceRoll == "1") {
-          let alert = this.alertCtrl.create({
-            title: "d" + this.selectedSides + " roll=",
-            message: this.diceRoll,
-            cssClass: "fumbleStyle",
-            buttons: ["Close"]
-          });
-          console.log("Fumble");
-          alert.present();
-        } else {
+            let alert = this.alertCtrl.create({
+              title: this.multiple + "d" + this.selectedSides + " roll=",
+              message: this.diceRoll,
+              cssClass: "fumbleStyle",
+              buttons: ["Close"]
+            });
+            console.log("Fumble");
+            alert.present();
+          } else {
           if (this.diceRoll == this.selectedSides) {
             let alert = this.alertCtrl.create({
-              title: "d" + this.selectedSides + " roll=",
+              title: this.multiple + "d" + this.selectedSides + " roll=",
               message: this.diceRoll,
               cssClass: "maxStyle",
               buttons: ["Close"]
@@ -603,7 +615,7 @@ export class DisplayPage {
             alert.present();
           } else {
             let alert = this.alertCtrl.create({
-              title: "d" + this.selectedSides + " roll=",
+              title: this.multiple + "d" + this.selectedSides + " roll=",
               message: this.diceRoll,
               cssClass: "normalStyle",
               buttons: ["Close"]
@@ -611,8 +623,79 @@ export class DisplayPage {
             alert.present();
           }
         }
+        }
       }
-    }
+    } else {
+      switch (this.selectedSides) {
+        case "A": {
+          let alert = this.alertCtrl.create({
+            title: "Error",
+            message: "Choose a number of sides.",
+            buttons: ["Close"]
+          });
+          alert.present();
+          break;
+        }
+        case "0": {
+          let alert = this.alertCtrl.create({
+            title: "Custom Roll",
+            message: "Insert custom number of sides",
+            cssClass: "normalStyle",
+            inputs: [
+              {
+                type: "number",
+                name: "custom",
+                placeholder: "Sides",
+                value: this.customSides
+              }
+            ],
+            buttons: [
+              {
+                text: "Roll",
+                handler: data => {
+                  this.customSides = data.custom;
+                  console.log(this.customSides);
+                  for ( let i = 0; i < this.multiple; i++) {
+                    console.log((this.diceRoll = Math.floor(Math.random() * this.customSides) + 1));
+                    this.results.push(this.diceRoll)
+                  };
+                  let alert = this.alertCtrl.create({
+                    title: this.multiple + "d" + this.customSides + " roll = " + this.results.reduce(function(a, b) { return a + b; }, 0),
+                    message: this.results.toString(),
+                    cssClass: "normalStyle",
+                    buttons: ["Close"]
+                  });
+                  alert.present();
+                }
+              },
+              {
+                text: "Cancel",
+                role: "cancel",
+                handler: data => {
+                  console.log("Cancel clicked");
+                }
+              }
+            ]
+          });
+          console.log("Custom");
+          alert.present();
+          break;
+        }
+        default: {
+        for ( let i = 0; i < this.multiple; i++) {
+          console.log((this.diceRoll = Math.floor(Math.random() * this.selectedSides) + 1));
+          this.results.push(this.diceRoll)
+        };
+        let alert = this.alertCtrl.create({
+          title: this.multiple + "d" + this.selectedSides + " roll = " + this.results.reduce(function(a, b) { return a + b; }, 0),
+          message: this.results.toString(),
+          cssClass: "normalStyle",
+          buttons: ["Close"]
+        });
+        alert.present();
+        break;
+      }
+    }}
   }
 
   rollCustom() {
@@ -621,18 +704,18 @@ export class DisplayPage {
     );
 
     if (this.diceRoll == "1") {
-      let alert = this.alertCtrl.create({
-        title: "d" + this.customSides + " roll=",
-        message: this.diceRoll,
-        cssClass: "fumbleStyle",
-        buttons: ["Close"]
-      });
-      console.log("Fumble");
-      alert.present();
-    } else {
-      if (this.diceRoll == this.customSides) {
         let alert = this.alertCtrl.create({
-          title: "d" + this.customSides + " roll=",
+          title: this.multiple + "d" + this.customSides + " roll=",
+          message: this.diceRoll,
+          cssClass: "fumbleStyle",
+          buttons: ["Close"]
+        });
+        console.log("Fumble");
+        alert.present();
+      } else {
+        if (this.diceRoll == this.customSides) {
+        let alert = this.alertCtrl.create({
+          title: this.multiple + "d" + this.customSides + " roll=",
           message: this.diceRoll,
           cssClass: "maxStyle",
           buttons: ["Close"]
@@ -641,7 +724,7 @@ export class DisplayPage {
         alert.present();
       } else {
         let alert = this.alertCtrl.create({
-          title: "d" + this.customSides + " roll=",
+          title: this.multiple + "d" + this.customSides + " roll=",
           message: this.diceRoll,
           cssClass: "normalStyle",
           buttons: ["Close"]

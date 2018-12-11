@@ -25,11 +25,17 @@ page-display {
 
   .sidesLabel {
     display: flex;
-    text-align: center;
+    text-align: right;
+    font-weight: bold;
     align-content: center;
     align-items: center;
-    font-weight: bold;
-  }
+    border-style: solid;
+    border-color: black;
+    background: white;
+    .text-input {
+      color: black;
+    }
+}
 
   .sideSelectBar {
     max-width: 100% !important;

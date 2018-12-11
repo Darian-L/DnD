@@ -8,6 +8,7 @@ import { Repository } from "../../providers/repository";
 import { CreatePage } from "../create/create";
 import { Guid } from "../../providers/guid";
 import { RollProvider } from "../../providers/rollprovider";
+import { summaryFileName } from "@angular/compiler/src/aot/util";
 
 @Component({
   selector: "page-home",
@@ -15,10 +16,12 @@ import { RollProvider } from "../../providers/rollprovider";
 })
 export class HomePage {
   public diceRoll;
+  public multiple;
   public selectedSides: any = "A";
   public customSides;
   public sides;
   public characters;
+  public results = [];
 
   constructor(
     public navCtrl: NavController,
@@ -31,21 +34,30 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.characters = JSON.parse(this.appRepo.load("characters"));
+    this.multiple = 1;
   }
-//TODO: Implement multiple dice rolling
+
   roll() {
+
+    this.results = [];
+
+    if (this.multiple == 1) {
     console.log(
       (this.diceRoll = Math.floor(Math.random() * this.selectedSides) + 1)
     );
-    if (this.selectedSides == "A") {
+    console.log(this.multiple + " multiple 1")
+
+    switch (this.selectedSides) {
+    case "A": {
       let alert = this.alertCtrl.create({
         title: "Error",
         message: "Choose a number of sides.",
         buttons: ["Close"]
       });
       alert.present();
-    } else {
-      if (this.selectedSides == "0") {
+      break;
+    }
+      case "0": {
         let alert = this.alertCtrl.create({
           title: "Custom Roll",
           message: "Insert custom number of sides",
@@ -78,20 +90,21 @@ export class HomePage {
         });
         console.log("Custom");
         alert.present();
-      } else {
+        break;
+      } default: {
         if (this.diceRoll == "1") {
-          let alert = this.alertCtrl.create({
-            title: "d" + this.selectedSides + " roll=",
-            message: this.diceRoll,
-            cssClass: "fumbleStyle",
-            buttons: ["Close"]
-          });
-          console.log("Fumble");
-          alert.present();
-        } else {
+            let alert = this.alertCtrl.create({
+              title: this.multiple + "d" + this.selectedSides + " roll=",
+              message: this.diceRoll,
+              cssClass: "fumbleStyle",
+              buttons: ["Close"]
+            });
+            console.log("Fumble");
+            alert.present();
+          } else {
           if (this.diceRoll == this.selectedSides) {
             let alert = this.alertCtrl.create({
-              title: "d" + this.selectedSides + " roll=",
+              title: this.multiple + "d" + this.selectedSides + " roll=",
               message: this.diceRoll,
               cssClass: "maxStyle",
               buttons: ["Close"]
@@ -100,7 +113,7 @@ export class HomePage {
             alert.present();
           } else {
             let alert = this.alertCtrl.create({
-              title: "d" + this.selectedSides + " roll=",
+              title: this.multiple + "d" + this.selectedSides + " roll=",
               message: this.diceRoll,
               cssClass: "normalStyle",
               buttons: ["Close"]
@@ -108,8 +121,79 @@ export class HomePage {
             alert.present();
           }
         }
+        }
       }
-    }
+    } else {
+      switch (this.selectedSides) {
+        case "A": {
+          let alert = this.alertCtrl.create({
+            title: "Error",
+            message: "Choose a number of sides.",
+            buttons: ["Close"]
+          });
+          alert.present();
+          break;
+        }
+        case "0": {
+          let alert = this.alertCtrl.create({
+            title: "Custom Roll",
+            message: "Insert custom number of sides",
+            cssClass: "normalStyle",
+            inputs: [
+              {
+                type: "number",
+                name: "custom",
+                placeholder: "Sides",
+                value: this.customSides
+              }
+            ],
+            buttons: [
+              {
+                text: "Roll",
+                handler: data => {
+                  this.customSides = data.custom;
+                  console.log(this.customSides);
+                  for ( let i = 0; i < this.multiple; i++) {
+                    console.log((this.diceRoll = Math.floor(Math.random() * this.customSides) + 1));
+                    this.results.push(this.diceRoll)
+                  };
+                  let alert = this.alertCtrl.create({
+                    title: this.multiple + "d" + this.customSides + " roll = " + this.results.reduce(function(a, b) { return a + b; }, 0),
+                    message: this.results.toString(),
+                    cssClass: "normalStyle",
+                    buttons: ["Close"]
+                  });
+                  alert.present();
+                }
+              },
+              {
+                text: "Cancel",
+                role: "cancel",
+                handler: data => {
+                  console.log("Cancel clicked");
+                }
+              }
+            ]
+          });
+          console.log("Custom");
+          alert.present();
+          break;
+        }
+        default: {
+        for ( let i = 0; i < this.multiple; i++) {
+          console.log((this.diceRoll = Math.floor(Math.random() * this.selectedSides) + 1));
+          this.results.push(this.diceRoll)
+        };
+        let alert = this.alertCtrl.create({
+          title: this.multiple + "d" + this.selectedSides + " roll = " + this.results.reduce(function(a, b) { return a + b; }, 0),
+          message: this.results.toString(),
+          cssClass: "normalStyle",
+          buttons: ["Close"]
+        });
+        alert.present();
+        break;
+      }
+    }}
   }
 
   rollCustom() {
@@ -117,19 +201,19 @@ export class HomePage {
       (this.diceRoll = Math.floor(Math.random() * this.customSides) + 1)
     );
 
-    if (this.diceRoll == "1") {
-      let alert = this.alertCtrl.create({
-        title: "d" + this.customSides + " roll=",
-        message: this.diceRoll,
-        cssClass: "fumbleStyle",
-        buttons: ["Close"]
-      });
-      console.log("Fumble");
-      alert.present();
-    } else {
-      if (this.diceRoll == this.customSides) {
+      if (this.diceRoll == "1") {
         let alert = this.alertCtrl.create({
-          title: "d" + this.customSides + " roll=",
+          title: this.multiple + "d" + this.customSides + " roll=",
+          message: this.diceRoll,
+          cssClass: "fumbleStyle",
+          buttons: ["Close"]
+        });
+        console.log("Fumble");
+        alert.present();
+      } else {
+        if (this.diceRoll == this.customSides) {
+        let alert = this.alertCtrl.create({
+          title: this.multiple + "d" + this.customSides + " roll=",
           message: this.diceRoll,
           cssClass: "maxStyle",
           buttons: ["Close"]
@@ -138,7 +222,7 @@ export class HomePage {
         alert.present();
       } else {
         let alert = this.alertCtrl.create({
-          title: "d" + this.customSides + " roll=",
+          title: this.multiple + "d" + this.customSides + " roll=",
           message: this.diceRoll,
           cssClass: "normalStyle",
           buttons: ["Close"]
@@ -152,18 +236,18 @@ export class HomePage {
     console.log((this.diceRoll = Math.floor(Math.random() * sides) + 1));
 
     if (this.diceRoll == "1") {
-      let alert = this.alertCtrl.create({
-        title: "d" + sides + " roll=",
-        message: this.diceRoll,
-        cssClass: "fumbleStyle",
-        buttons: ["Close"]
-      });
-      console.log("Fumble");
-      alert.present();
-    } else {
-      if (this.diceRoll == sides) {
         let alert = this.alertCtrl.create({
-          title: "d" + sides + " roll=",
+          title: 1 + "d" + sides + " roll=",
+          message: this.diceRoll,
+          cssClass: "fumbleStyle",
+          buttons: ["Close"]
+        });
+        console.log("Fumble");
+        alert.present();
+      } else {
+        if (this.diceRoll == sides) {
+        let alert = this.alertCtrl.create({
+          title: 1 + "d" + sides + " roll=",
           message: this.diceRoll,
           cssClass: "maxStyle",
           buttons: ["Close"]
@@ -172,7 +256,7 @@ export class HomePage {
         alert.present();
       } else {
         let alert = this.alertCtrl.create({
-          title: "d" + sides + " roll=",
+          title: 1 + "d" + sides + " roll=",
           message: this.diceRoll,
           cssClass: "normalStyle",
           buttons: ["Close"]

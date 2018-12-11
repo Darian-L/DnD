@@ -6,18 +6,18 @@
       </button>
     </ion-col>
 
-    <ion-col col-2 class="sidesLabel">
-      <ion-label>Sides:</ion-label>
+    <ion-col col-2>
+      <ion-input color="primary" class="sidesLabel" type="number" [(ngModel)]="multiple"></ion-input>
     </ion-col>
 
-    <ion-col>
+    <ion-col col-4>
       <ion-item>
-        <ion-select [(ngModel)]="selectedSides" placeholder="Select" interface="popover" class="sideSelectBar" no-lines>
-          <ion-option value="4"> 4 </ion-option>
-          <ion-option value="6"> 6 </ion-option>
-          <ion-option value="8"> 8 </ion-option>
-          <ion-option value="10"> 10 </ion-option>
-          <ion-option value="12"> 12 </ion-option>
+        <ion-select [(ngModel)]="selectedSides" placeholder="Sides" interface="popover" class="sideSelectBar" no-lines>
+          <ion-option value="4"> d4 </ion-option>
+          <ion-option value="6"> d6 </ion-option>
+          <ion-option value="8"> d8 </ion-option>
+          <ion-option value="10"> d10 </ion-option>
+          <ion-option value="12"> d12 </ion-option>
           <ion-option value=0> Custom </ion-option>
         </ion-select>
       </ion-item>
@@ -35,8 +35,6 @@
 
 <ion-content class="content" padding>
 
-  <!-- <button ion-button (click)="test(no)">Test</button> -->
-
   <h3 class="homePageHeadings">Characters:</h3>
   <ion-list>
     <ion-item *ngFor="let character of characters;let i = index" (click)="pushDisplayPage(i)">
@@ -51,6 +49,5 @@
   <button ion-button round (click)="pushConditionsPage()" class="resourceButtons">Conditions</button>
   <button ion-button round (click)="pushLevelsPage()" class="resourceButtons">Level Advancement</button>
 
-  <!-- <div class="placeholder"></div> -->
   <div class="bottomGap"></div>
 </ion-content>
