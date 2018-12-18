@@ -1,53 +1,20 @@
-<div class="topBar">
-  <ion-row nowrap justify-content-around>
-    <ion-col col-2>
-      <button ion-button round (click)="rollSpecified(20)" class="buttonWidth">
-        d20
-      </button>
-    </ion-col>
-
-    <ion-col col-2>
-      <ion-input color="primary" class="sidesLabel" type="number" [(ngModel)]="multiple"></ion-input>
-    </ion-col>
-
-    <ion-col col-4>
-      <ion-item>
-        <ion-select [(ngModel)]="selectedSides" placeholder="Sides" interface="popover" class="sideSelectBar" no-lines>
-          <ion-option value="4"> d4 </ion-option>
-          <ion-option value="6"> d6 </ion-option>
-          <ion-option value="8"> d8 </ion-option>
-          <ion-option value="10"> d10 </ion-option>
-          <ion-option value="12"> d12 </ion-option>
-          <ion-option value=0> Custom </ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-
-    <ion-col col-3>
-      <button ion-button round (click)="roll()" class="buttonWidth">
-        Roll
-      </button>
-    </ion-col>
-  </ion-row>
-</div>
-
-
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding> Characters </ion-title>
+    <ion-buttons end><button class="transparent"><ion-icon class="createIcon" name="person-add" (click)="createNewCharacter()"></ion-icon></button></ion-buttons>
+  </ion-navbar>
+</ion-header>
 
 <ion-content class="content" padding>
 
-  <h3 class="homePageHeadings">Characters:</h3>
+  <div *ngIf="empty" class="emptyArray">No characters added.  Click the top-right corner to add one.</div>
+
   <ion-list>
     <ion-item *ngFor="let character of characters;let i = index" (click)="pushDisplayPage(i)">
-      <span class="bullet"></span>{{ character.name }}
+      <div class="name">{{ character.name }}</div>
+        <div class="details">Class:  {{ character.class }}</div>
+        <div class="details">Race:   {{ character.race }}</div>
+        <div class="details">Level:  {{ character.level }}</div>
     </ion-item>
   </ion-list>
-  <button ion-button round (click)="createNewCharacter()" class="resourceButtons">Add New</button>
-  <br>
-
-  <h3 class="homePageHeadings">Resources:</h3>
-
-  <button ion-button round (click)="pushConditionsPage()" class="resourceButtons">Conditions</button>
-  <button ion-button round (click)="pushLevelsPage()" class="resourceButtons">Level Advancement</button>
-
-  <div class="bottomGap"></div>
 </ion-content>

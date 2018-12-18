@@ -1,5 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { NavController, NavParams, ToastController, Slides, Content } from "ionic-angular";
+import { NavController, NavParams, ToastController, Slides, Content, Slide } from "ionic-angular";
 import { AlertController } from "ionic-angular";
 import { DisplayPage } from "../display/display";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
@@ -17,7 +17,7 @@ export class EditPage {
   public characters;
   public character;
   public segments;
-  private characterForm: FormGroup;
+  public characterForm: FormGroup;
 
   constructor(
     public navCtrl: NavController,
@@ -111,17 +111,21 @@ export class EditPage {
   selectedTab(ind) {
     this.slider.slideTo(ind);
   }
- //TODO: Content not fully loading before height decided before first slide change
+
   ionViewDidLoad() {
     this.slider.autoHeight = true;
   }
 
+  ionViewWillEnter() {
+    setTimeout(() => {this.selectedTab(0)}, 100);
+  }
+
   moveButton($event) {
-    this.content.scrollToTop(1000);
+    this.content.scrollToTop(500);
     this.segments = $event._snapIndex.toString()
   }
 
-  saveEdit() {
+  saveButton() {
     if (this.characterForm.valid) {
       this.characters = JSON.parse(this.appRepo.load("characters"));
 
@@ -145,7 +149,7 @@ export class EditPage {
     }
   }
 
-  deleteEdit() {
+  deleteButton() {
     const confirm = this.alertCtrl.create({
       title: "Delete?",
       message: "Are you sure you want to delete this character?",

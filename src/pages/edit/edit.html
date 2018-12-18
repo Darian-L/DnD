@@ -1,6 +1,7 @@
-<ion-header>
-  <ion-navbar class="headerBackground">
-    <ion-title padding> Edit </ion-title>
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>Edit</ion-title>
+    <ion-buttons end><button class="transparent"><ion-icon class="saveIcon" name="checkmark" (click)="saveButton()"></ion-icon></button></ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -234,18 +235,12 @@
           ></ion-textarea>
         </ion-item>
 
-        <ion-row>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="saveEdit()">Save</button>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="deleteEdit()">Delete</button>
-            </div>
-          </ion-col>
-        </ion-row>
+        <br/>
+
+        <button ion-button round class="deleteButton">
+          <ion-icon class="deleteIcon" name="trash" (click)="deleteButton()"></ion-icon>
+        </button>
+
       </ion-slide>
 
       <ion-slide>
@@ -631,18 +626,12 @@
           ></ion-textarea>
         </ion-item>
 
-        <ion-row>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="saveEdit()">Save</button>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="deleteEdit()">Delete</button>
-            </div>
-          </ion-col>
-        </ion-row>
+        <br/>
+
+        <button ion-button round class="deleteButton">
+          <ion-icon class="deleteIcon" name="trash" (click)="deleteButton()"></ion-icon>
+        </button>
+
       </ion-slide>
 
       <ion-slide>
@@ -726,18 +715,12 @@
           ></ion-textarea>
         </ion-item>
 
-        <ion-row>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="saveEdit()">Save</button>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="deleteEdit()">Delete</button>
-            </div>
-          </ion-col>
-        </ion-row>
+        <br/>
+
+        <button ion-button round class="deleteButton">
+        <ion-icon class="deleteIcon" name="trash" (click)="deleteButton()"></ion-icon>
+        </button>
+
       </ion-slide>
     </ion-slides>
   </form>

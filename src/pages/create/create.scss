@@ -1,16 +1,19 @@
 page-create {
 
-.updateButton {
-    text-align:center;
-    margin:auto;
-}
-
-.editLabel {
-    color: "dark"
-}
-
 .sideSelectBar {
   max-width: 100% !important;
+}
+
+.saveIcon {
+  color: #ff8d22;
+  margin-right: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.item-inner {
+  border-bottom-color: grey !important;
+  box-shadow: none !important;
 }
 
 }

@@ -1,16 +1,31 @@
 page-edit {
 
-.updateButton {
+.deleteButton {
     text-align:center;
     margin:auto;
+    border: solid;
+    border-width: 3px;
+    border-color: black;
+    background-color: black;
 }
 
-.editLabel {
-    color: "dark"
+.deleteIcon {
+  color: #ff8d22;
+  font-size: 25px;
+}
+
+.saveIcon {
+  color: #ff8d22;
+  margin-right: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.item-inner {
+  border-bottom-color: grey !important;
+  box-shadow: none !important;
 }
 
 .sideSelectBar {
   max-width: 100% !important;
-}
-
-}
+}}

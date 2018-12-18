@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Keyboard } from '@ionic-native/keyboard';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -10,14 +11,16 @@ import { DisplayPage } from '../pages/display/display';
 import { EditPage } from '../pages/edit/edit';
 import { ConditionsPage} from '../pages/conditions/conditions';
 import { LevelsPage } from '../pages/levels/levels';
-import { CreatePage } from '../pages/create/create'
+import { CreatePage } from '../pages/create/create';
+import { ResourcePage } from '../pages/resources/resources';
+import { DicePage } from '../pages/dice/dice';
 
 import { HttpModule } from '@angular/http';
 import { Repository } from '../providers/repository';
-import { RollProvider } from '../providers/rollprovider';
 import { Guid } from '../providers/guid';
 import { FormsModule } from '@angular/forms';
 import { Autosize } from '../providers/autosize';
+// import { AnimationService, AnimatesDirective } from 'css-animator';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,19 @@ import { Autosize } from '../providers/autosize';
     ConditionsPage,
     LevelsPage,
     CreatePage,
+    ResourcePage,
+    DicePage,
     Autosize,
+    // AnimatesDirective,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false,
+      autoFocusAssist: false
+  }),
     HttpModule,
   ],
 
@@ -46,14 +55,17 @@ import { Autosize } from '../providers/autosize';
     EditPage,
     ConditionsPage,
     LevelsPage,
-    CreatePage
+    CreatePage,
+    ResourcePage,
+    DicePage,
   ],
   providers: [
     Repository,
-    RollProvider,
     StatusBar,
+    Keyboard,
     SplashScreen,
     Guid,
+    // AnimationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -15,7 +15,7 @@ export class CreatePage {
   @ViewChild('slider') slider: Slides;
   @ViewChild(Content) content: Content;
 
-  private newCharacterForm: FormGroup;
+  public newCharacterForm: FormGroup;
   public guidID;
   public characters;
   public segments;
@@ -119,11 +119,11 @@ export class CreatePage {
   }
 
   moveButton($event) {
-    this.content.scrollToTop(1000);
+    this.content.scrollToTop(500);
     this.segments = $event._snapIndex.toString()
   }
 
-  saveCreate() {
+  saveButton() {
     if (this.newCharacterForm.valid) {
       let character = this.newCharacterForm.value;
       this.characters = JSON.parse(this.appRepo.load("characters"));
@@ -148,28 +148,5 @@ export class CreatePage {
       });
       toast.present();
     }
-  }
-
-  cancelCreate() {
-    const confirm = this.alertCtrl.create({
-      title: "Cancel?",
-      message: "Are you sure you want to cancel?",
-      buttons: [
-        {
-          text: "Confirm",
-          handler: () => {
-            this.navCtrl.popToRoot();
-            console.log("Create cancelled");
-          }
-        },
-        {
-          text: "Cancel",
-          handler: () => {
-            console.log("Cancel cancelled");
-          }
-        }
-      ]
-    });
-    confirm.present();
   }
 }

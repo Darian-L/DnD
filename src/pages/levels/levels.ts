@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 
 @Component({
     selector: 'page-levels',
@@ -8,13 +6,6 @@ import { HomePage } from '../home/home';
 })
 export class LevelsPage {
 
-    constructor(public navCtrl: NavController) {
-
-    }
-
-    pushHomePage() {
-        this.navCtrl.push(HomePage)
-        console.log("Home pushed")
-      }
+    constructor() {}
 
 }

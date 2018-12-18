@@ -1,374 +1,372 @@
 <ion-header>
-    <ion-navbar class="headerBackground">
-        <ion-title >
-            Conditions
-        </ion-title>
-    </ion-navbar>
+  <ion-navbar class="headerBackground">
+    <ion-title> Conditions </ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(0)">
-            Blinded
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[0] == true">
-            <ul>
-                <li>
-                    A blinded creature can’t see and automatically fails any ability check that requires sight.
-                </li>
-                <li>
-                    Attack rolls against the creature have advantage, and the creature’s Attack rolls have
-                    disadvantage.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(0)">
+      Blinded
+      <ion-icon *ngIf="cards[0] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[0] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[0] == true">
+      <ul>
+        <li>
+          A blinded creature can’t see and automatically fails any ability check
+          that requires sight.
+        </li>
+        <li>
+          Attack rolls against the creature have advantage, and the creature’s
+          Attack rolls have disadvantage.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(1)">
-            Charmed
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[1] == true">
-            <ul>
-                <li>
-                    A charmed creature can’t Attack the charmer or target the charmer with harmful Abilities or magical
-                    effects.
-                </li>
-                <li>
-                    The charmer has advantage on any ability check to interact socially with the creature.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(1)">
+      Charmed
+      <ion-icon *ngIf="cards[1] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[1] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[1] == true">
+      <ul>
+        <li>
+          A charmed creature can’t Attack the charmer or target the charmer with
+          harmful Abilities or magical effects.
+        </li>
+        <li>
+          The charmer has advantage on any ability check to interact socially
+          with the creature.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(2)">
-            Deafened
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[2] == true">
-            <ul>
-                <li>
-                    A deafened creature can’t hear and automatically fails any ability check that requires hearing.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(2)">
+      Deafened
+      <ion-icon *ngIf="cards[2] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[2] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[2] == true">
+      <ul>
+        <li>
+          A deafened creature can’t hear and automatically fails any ability
+          check that requires hearing.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(3)">
-            Frightened
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[3] == true">
-            <ul>
-                <li>
-                    A frightened creature has disadvantage on Ability Checks and Attack rolls while the source of its
-                    fear is within line of sight.
-                </li>
-                <li>
-                    The creature can’t willingly move closer to the source of its fear.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(3)">
+      Frightened
+      <ion-icon *ngIf="cards[3] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[3] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[3] == true">
+      <ul>
+        <li>
+          A frightened creature has disadvantage on Ability Checks and Attack
+          rolls while the source of its fear is within line of sight.
+        </li>
+        <li>
+          The creature can’t willingly move closer to the source of its fear.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(4)">
-            Grappled
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[4] == true">
-            <ul>
-                <li>
-                    A grappled creature’s speed becomes 0, and it can’t benefit from any bonus to its speed.
-                </li>
-                <li>
-                    The condition ends if the Grappler is incapacitated (see the condition).
-                </li>
-                <li>
-                    The condition also ends if an effect removes the grappled creature from the reach of the Grappler
-                    or Grappling effect, such as when a creature is hurled away by the Thunderwave spell.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(4)">
+      Grappled
+      <ion-icon *ngIf="cards[4] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[4] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[4] == true">
+      <ul>
+        <li>
+          A grappled creature’s speed becomes 0, and it can’t benefit from any
+          bonus to its speed.
+        </li>
+        <li>
+          The condition ends if the Grappler is incapacitated (see the
+          condition).
+        </li>
+        <li>
+          The condition also ends if an effect removes the grappled creature
+          from the reach of the Grappler or Grappling effect, such as when a
+          creature is hurled away by the Thunderwave spell.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(5)">
-            Incapacitated
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[5] == true">
-            <ul>
-                <li>
-                    An incapacitated creature can’t take actions or reactions.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(5)">
+      Incapacitated
+      <ion-icon *ngIf="cards[5] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[5] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[5] == true">
+      <ul>
+        <li>An incapacitated creature can’t take actions or reactions.</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(6)">
-            Invisible
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[6] == true">
-            <ul>
-                <li>
-                    An invisible creature is impossible to see without the aid of magic or a Special sense. For the
-                    purpose of Hiding, the creature is heavily obscured. The creature’s location can be detected by any
-                    noise it makes or any tracks it leaves.
-                </li>
-                <li>
-                    Attack rolls against the creature have disadvantage, and the creature’s Attack rolls have
-                    advantage.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(6)">
+      Invisible
+      <ion-icon *ngIf="cards[6] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[6] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[6] == true">
+      <ul>
+        <li>
+          An invisible creature is impossible to see without the aid of magic or
+          a Special sense. For the purpose of Hiding, the creature is heavily
+          obscured. The creature’s location can be detected by any noise it
+          makes or any tracks it leaves.
+        </li>
+        <li>
+          Attack rolls against the creature have disadvantage, and the
+          creature’s Attack rolls have advantage.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(7)">
-            Paralyzed
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[7] == true">
-            <ul>
-                <li>
-                    A paralyzed creature is incapacitated (see the condition) and can’t move or speak.
-                </li>
-                <li>
-                    The creature automatically fails Strength and Dexterity Saving Throws.
-                </li>
-                <li>
-                    Attack rolls against the creature have advantage.
-                </li>
-                <li>
-                    Any Attack that hits the creature is a critical hit if the attacker is within 5 feet of the
-                    creature.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(7)">
+      Paralyzed
+      <ion-icon *ngIf="cards[7] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[7] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[7] == true">
+      <ul>
+        <li>
+          A paralyzed creature is incapacitated (see the condition) and can’t
+          move or speak.
+        </li>
+        <li>
+          The creature automatically fails Strength and Dexterity Saving Throws.
+        </li>
+        <li>Attack rolls against the creature have advantage.</li>
+        <li>
+          Any Attack that hits the creature is a critical hit if the attacker is
+          within 5 feet of the creature.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(8)">
-            Petrified
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[8] == true">
-            <ul>
-                <li>
-                    A petrified creature is transformed, along with any nonmagical object it is wearing or carrying,
-                    into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it
-                    ceases aging.
-                </li>
-                <li>
-                    The creature is incapacitated (see the condition), can’t move or speak, and is unaware of its
-                    surroundings.
-                </li>
-                <li>
-                    Attack rolls against the creature have advantage.
-                </li>
-                <li>
-                    The creature automatically fails Strength and Dexterity Saving Throws.
-                </li>
-                <li>
-                    The creature has Resistance to all damage.
-                </li>
-                <li>
-                    The creature is immune to poison and disease, although a poison or disease already in its system is
-                    suspended, not neutralized.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(8)">
+      Petrified
+      <ion-icon *ngIf="cards[8] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[8] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[8] == true">
+      <ul>
+        <li>
+          A petrified creature is transformed, along with any nonmagical object
+          it is wearing or carrying, into a solid inanimate substance (usually
+          stone). Its weight increases by a factor of ten, and it ceases aging.
+        </li>
+        <li>
+          The creature is incapacitated (see the condition), can’t move or
+          speak, and is unaware of its surroundings.
+        </li>
+        <li>Attack rolls against the creature have advantage.</li>
+        <li>
+          The creature automatically fails Strength and Dexterity Saving Throws.
+        </li>
+        <li>The creature has Resistance to all damage.</li>
+        <li>
+          The creature is immune to poison and disease, although a poison or
+          disease already in its system is suspended, not neutralized.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(9)">
-            Poisoned
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[9] == true">
-            <ul>
-                <li>
-                    A poisoned creature has disadvantage on Attack rolls and Ability Checks.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(9)">
+      Poisoned
+      <ion-icon *ngIf="cards[9] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[9] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[9] == true">
+      <ul>
+        <li>
+          A poisoned creature has disadvantage on Attack rolls and Ability
+          Checks.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(10)">
-            Prone
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[10] == true">
-            <ul>
-                <li>
-                    A prone creature’s only Movement option is to crawl, unless it stands up and thereby ends the
-                    condition.
-                </li>
-                <li>
-                    The creature has disadvantage on Attack rolls.
-                </li>
-                <li>
-                    An Attack roll against the creature has advantage if the attacker is within 5 feet of the creature.
-                    Otherwise, the Attack roll has disadvantage.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(10)">
+      Prone
+      <ion-icon *ngIf="cards[10] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[10] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[10] == true">
+      <ul>
+        <li>
+          A prone creature’s only Movement option is to crawl, unless it stands
+          up and thereby ends the condition.
+        </li>
+        <li>The creature has disadvantage on Attack rolls.</li>
+        <li>
+          An Attack roll against the creature has advantage if the attacker is
+          within 5 feet of the creature. Otherwise, the Attack roll has
+          disadvantage.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(11)">
-            Restrained
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[11] == true">
-            <ul>
-                <li>
-                    A restrained creature’s speed becomes 0, and it can’t benefit from any bonus to its speed.
-                </li>
-                <li>
-                    Attack rolls against the creature have advantage, and the creature’s Attack rolls have
-                    disadvantage.
-                </li>
-                <li>
-                    The creature has disadvantage on Dexterity Saving Throws.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(11)">
+      Restrained
+      <ion-icon *ngIf="cards[11] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[11] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[11] == true">
+      <ul>
+        <li>
+          A restrained creature’s speed becomes 0, and it can’t benefit from any
+          bonus to its speed.
+        </li>
+        <li>
+          Attack rolls against the creature have advantage, and the creature’s
+          Attack rolls have disadvantage.
+        </li>
+        <li>The creature has disadvantage on Dexterity Saving Throws.</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(12)">
-            Stunned
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[12] == true">
-            <ul>
-                <li>
-                    A stunned creature is incapacitated (see the condition), can’t move, and can speak only
-                    falteringly.
-                </li>
-                <li>
-                    The creature automatically fails Strength and Dexterity Saving Throws.
-                </li>
-                <li>
-                    Attack rolls against the creature have advantage.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(12)">
+      Stunned
+      <ion-icon *ngIf="cards[12] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[12] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[12] == true">
+      <ul>
+        <li>
+          A stunned creature is incapacitated (see the condition), can’t move,
+          and can speak only falteringly.
+        </li>
+        <li>
+          The creature automatically fails Strength and Dexterity Saving Throws.
+        </li>
+        <li>Attack rolls against the creature have advantage.</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(13)">
-            Unconscious
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[13] == true">
-            <ul>
-                <li>
-                    An unconscious creature is incapacitated (see the condition), can’t move or speak, and is unaware
-                    of its surroundings </li>
-                <li>
-                    The creature drops whatever it’s holding and falls prone.
-                </li>
-                <li>
-                    The creature automatically fails Strength and Dexterity Saving Throws.
-                </li>
-                <li>
-                    Attack rolls against the creature have advantage.
-                </li>
-                <li>
-                    Any Attack that hits the creature is a critical hit if the attacker is within 5 feet of the
-                    creature.
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(13)">
+      Unconscious
+      <ion-icon *ngIf="cards[13] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[13] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[13] == true">
+      <ul>
+        <li>
+          An unconscious creature is incapacitated (see the condition), can’t
+          move or speak, and is unaware of its surroundings
+        </li>
+        <li>The creature drops whatever it’s holding and falls prone.</li>
+        <li>
+          The creature automatically fails Strength and Dexterity Saving Throws.
+        </li>
+        <li>Attack rolls against the creature have advantage.</li>
+        <li>
+          Any Attack that hits the creature is a critical hit if the attacker is
+          within 5 feet of the creature.
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="cardBackground">
-        <ion-card-header class="conditionHeaders" (click)="show(14)">
-            Exhausted
-        </ion-card-header>
-        <ion-card-content *ngIf="cards[14] == true">
-            Some Special Abilities and environmental hazards, such as starvation and the long-­term effects of freezing
-            or scorching temperatures, can lead to a Special condition called exhaustion. Exhaustion is measured in six
-            levels. An effect can give a creature one or more levels of exhaustion, as specified in the effect’s
-            description.
-            <ion-grid padding>
-                <ion-row class="table">
-                    Levels
-                </ion-row>
+  <ion-card class="cardBackground">
+    <ion-card-header class="conditionHeaders" (click)="show(14)">
+      Exhausted
+      <ion-icon *ngIf="cards[14] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[14] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[14] == true">
+      Some Special Abilities and environmental hazards, such as starvation and
+      the long-­term effects of freezing or scorching temperatures, can lead to
+      a Special condition called exhaustion. Exhaustion is measured in six
+      levels. An effect can give a creature one or more levels of exhaustion, as
+      specified in the effect’s description.
+      <ion-grid padding>
+        <ion-row class="table"> Levels </ion-row>
 
-                <ion-row>
-                    <ion-col col-2 class="table">
-                        1
-                    </ion-col>
-                    <ion-col class="table">
-                        Disadvantage on Ability Checks
-                    </ion-col>
-                </ion-row>
+        <ion-row>
+          <ion-col col-2 class="table"> 1 </ion-col>
+          <ion-col class="table"> Disadvantage on Ability Checks </ion-col>
+        </ion-row>
 
-                <ion-row>
-                    <ion-col col-2 class="table">
-                        2
-                    </ion-col>
-                    <ion-col class="table">
-                        Speed halved
-                    </ion-col>
-                </ion-row>
+        <ion-row>
+          <ion-col col-2 class="table"> 2 </ion-col>
+          <ion-col class="table"> Speed halved </ion-col>
+        </ion-row>
 
-                <ion-row>
-                    <ion-col col-2 class="table">
-                        3
-                    </ion-col>
-                    <ion-col class="table">
-                        Disadvantage on Attack rolls and Saving Throws
-                    </ion-col>
-                </ion-row>
+        <ion-row>
+          <ion-col col-2 class="table"> 3 </ion-col>
+          <ion-col class="table">
+            Disadvantage on Attack rolls and Saving Throws
+          </ion-col>
+        </ion-row>
 
-                <ion-row>
-                    <ion-col col-2 class="table">
-                        4
-                    </ion-col>
-                    <ion-col class="table">
-                        Hit point maximum halved
-                    </ion-col>
-                </ion-row>
+        <ion-row>
+          <ion-col col-2 class="table"> 4 </ion-col>
+          <ion-col class="table"> Hit point maximum halved </ion-col>
+        </ion-row>
 
-                <ion-row>
-                    <ion-col col-2 class="table">
-                        5
-                    </ion-col>
-                    <ion-col class="table">
-                        Speed reduced to 0
-                    </ion-col>
-                </ion-row>
+        <ion-row>
+          <ion-col col-2 class="table"> 5 </ion-col>
+          <ion-col class="table"> Speed reduced to 0 </ion-col>
+        </ion-row>
 
-                <ion-row>
-                    <ion-col col-2 class="table">
-                        6
-                    </ion-col>
-                    <ion-col class="table">
-                        Death
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-            <div class="spacer">If an already exhausted creature suffers another effect that causes exhaustion, its
-                current level of
-                exhaustion increases by the amount specified in the effect’s description.</div>
+        <ion-row>
+          <ion-col col-2 class="table"> 6 </ion-col>
+          <ion-col class="table"> Death </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="spacer">
+        If an already exhausted creature suffers another effect that causes
+        exhaustion, its current level of exhaustion increases by the amount
+        specified in the effect’s description.
+      </div>
 
-            <div class="spacer"> A creature suffers the effect of its current level of exhaustion as well as all lower
-                levels. For example,
-                a creature suffering level 2 exhaustion has its speed halved and has disadvantage on Ability Checks.</div>
+      <div class="spacer">
+        A creature suffers the effect of its current level of exhaustion as well
+        as all lower levels. For example, a creature suffering level 2
+        exhaustion has its speed halved and has disadvantage on Ability Checks.
+      </div>
 
-            <div class="spacer">An effect that removes exhaustion reduces its level as specified in the effect’s
-                description, with all
-                exhaustion effects ending if a creature’s exhaustion level is reduced below 1.</div>
+      <div class="spacer">
+        An effect that removes exhaustion reduces its level as specified in the
+        effect’s description, with all exhaustion effects ending if a creature’s
+        exhaustion level is reduced below 1.
+      </div>
 
-            <div class="spacer">Finishing a Long Rest reduces a creature’s exhaustion level by 1, provided that the
-                creature has also
-                ingested some food and drink.</div>
-
-        </ion-card-content>
-    </ion-card>
-
-    <!-- <div class="returnButton">
-        <button ion-button round (click)="pushHomePage()">Home</button>
-    </div> -->
-
-    <!-- <div class="placeholder">
-    </div> -->
+      <div class="spacer">
+        Finishing a Long Rest reduces a creature’s exhaustion level by 1,
+        provided that the creature has also ingested some food and drink.
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

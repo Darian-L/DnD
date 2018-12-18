@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 
@@ -9,9 +8,9 @@ import { HomePage } from '../home/home';
 })
 export class ConditionsPage {
 
-  private cards;
+  public cards;
 
-  constructor(public navCtrl: NavController) {
+  constructor() {
 
     this.cards = [
       false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
@@ -25,11 +24,5 @@ export class ConditionsPage {
       this.cards[index] = true;
     }
     console.log("toggled", this.cards[index])
-  }
-
-
-  pushHomePage() {
-    this.navCtrl.push(HomePage)
-    console.log("Home pushed")
   }
 }

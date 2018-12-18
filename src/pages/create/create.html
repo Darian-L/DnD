@@ -1,5 +1,8 @@
-<ion-header>
-  <ion-title padding class="headerBackground"> Create </ion-title>
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>Create</ion-title>
+    <ion-buttons end><button class="transparent"><ion-icon class="saveIcon" name="checkmark" (click)="saveButton()"></ion-icon></button></ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -231,19 +234,6 @@
             placeholder="Eg. Bag of Holding, 200GP"
           ></ion-textarea>
         </ion-item>
-
-        <ion-row>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="saveCreate()">Save</button>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="cancelCreate()">Cancel</button>
-            </div>
-          </ion-col>
-        </ion-row>
       </ion-slide>
 
       <ion-slide>
@@ -628,19 +618,6 @@
             placeholder="Eg. Alchemist kit"
           ></ion-textarea>
         </ion-item>
-
-        <ion-row>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="saveCreate()">Save</button>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="cancelCreate()">Cancel</button>
-            </div>
-          </ion-col>
-        </ion-row>
       </ion-slide>
 
       <ion-slide>
@@ -723,19 +700,6 @@
             formControlName="notes2"
           ></ion-textarea>
         </ion-item>
-
-        <ion-row>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="saveCreate()">Save</button>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="updateButton">
-              <button ion-button round (click)="cancelCreate()">Cancel</button>
-            </div>
-          </ion-col>
-        </ion-row>
       </ion-slide>
     </ion-slides>
   </form>

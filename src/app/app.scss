@@ -1,8 +1,52 @@
+ion-icon {
+  &[class*="prefix-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+  }
+  // custom icons
+  &[class*="prefix-dice"] {
+      mask-image: url(../assets/icon/noun_Dice_20125.svg);
+  }}
+
+.toolbar-md {
+  padding: 0px;
+}
+
+body.keyboard-is-open {
+  div.tabbar.show-tabbar {
+      display: none;
+  }
+}
+
+body.keyboard-is-open .scroll-content {
+  margin-bottom: 0 !important;
+}
+
+.title.title-md {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  }
+
+.back-button.show-back-button {
+  z-index: 4 !important;
+  }
+
+.transparent {
+  background-color: transparent;
+}
+
 .headerBackground {
     text-align: center;
     background-color: #222;
-    padding-right: 55px;
-    color: #ff8d22;
+    width: 100%;
 }
 
 ion-header{
@@ -14,51 +58,6 @@ ion-navbar{
   ion-icon.back-button-icon.icon {
   color: map-get($colors, primary);
 }}
-
-.topBar {
-    position: fixed;
-    width: 100%;
-    background-color: #222;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    margin-bottom: 0%;
-    color: #ff8d22
-}
-
-.placeholder {
-    height: 200%;
-    background: #e8e9ff;
-}
-
-.fumbleStyle {
-    color: black;
-    .alert-message{
-        color: red;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-    }
-}
-
-.normalStyle {
-    color: black;
-    .alert-message{
-        color: black;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-    }
-}
-
-.maxStyle {
-    color: black;
-    .alert-message{
-        color: green;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-    }
-}
 
 .toast {
     .toast-wrapper {

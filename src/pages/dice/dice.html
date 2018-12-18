@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title padding class="headerBackground"> Dice </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+<div class="topContainer">
+  <div #myElement><ion-item class="circle"> {{diceRoll}} </ion-item></div>
+</div>
+
+<div class="middleContainer">
+  <div class="centred">
+    <ion-row>
+      <ion-col>
+        <button ion-button round (click)="rollSpecified(4)">d4</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button round (click)="rollSpecified(6)">d6</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button round (click)="rollSpecified(8)">d8</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button round (click)="rollSpecified(10)">d10</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button round (click)="rollSpecified(12)">d12</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button round (click)="rollSpecified(20)">d20</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>
+
+<div>
+  <h3 class="centred_underlined">Custom</h3>
+
+  <div class="outputs" *ngIf="output"> {{ output }}</div>
+
+  <ion-row>
+    <ion-col>
+      <ion-input class="inputs" type="number" [(ngModel)]="multiple"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-input class="inputs" type="number" [(ngModel)]="selectedSides"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row class="centred">
+    <ion-col>Multiples</ion-col>
+    <ion-col>Sides</ion-col>
+  </ion-row>
+  <br/>
+
+  <div class="centred"><button class="rollButton" ion-button round (click)="roll()">Roll</button></div>
+  <br/>
+
+</div>
+</ion-grid>
+</ion-content>
