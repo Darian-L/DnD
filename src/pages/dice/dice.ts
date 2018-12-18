@@ -1,12 +1,10 @@
-import { Component, ViewChild } from "@angular/core";
-// import { AnimationService, AnimationBuilder } from "css-animator";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "page-dice",
   templateUrl: "dice.html"
 })
 export class DicePage {
-@ViewChild('myElement') myElem;
 
   public diceRoll;
   public multiple;
@@ -15,12 +13,10 @@ export class DicePage {
   public total;
   public output;
   public results = [];
-  // private animator: AnimationBuilder
 
-  constructor(//public animationService: AnimationService) {
-  ){ this.multiple = "";
+  constructor() {
+    this.multiple = "";
     this.selectedSides = "";
-    // this.animator = animationService.builder();
     }
 
   roll() {//TODO: set busy
@@ -33,14 +29,10 @@ export class DicePage {
         this.total = this.results.reduce(function(a, b) { return a + b; }, 0);
         this.output = this.results.toString();
         this.diceRoll = this.total;
-        // this.animator.setType('pulse').show(this.myElem.nativeElement);
-        // this.animator.setDuration(400)
     }
 
   rollSpecified(sides) {
     console.log((this.diceRoll = Math.floor(Math.random() * sides) + 1));
     this.output = "";
-    // this.animator.setType('pulse').show(this.myElem.nativeElement);
-    // this.animator.setDuration(400)
   }
 }

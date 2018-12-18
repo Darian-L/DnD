@@ -20,7 +20,6 @@ import { Repository } from '../providers/repository';
 import { Guid } from '../providers/guid';
 import { FormsModule } from '@angular/forms';
 import { Autosize } from '../providers/autosize';
-// import { AnimationService, AnimatesDirective } from 'css-animator';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { Autosize } from '../providers/autosize';
     ResourcePage,
     DicePage,
     Autosize,
-    // AnimatesDirective,
 
   ],
   imports: [
@@ -65,7 +63,6 @@ import { Autosize } from '../providers/autosize';
     Keyboard,
     SplashScreen,
     Guid,
-    // AnimationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
