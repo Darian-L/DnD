@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Keyboard } from '@ionic-native/keyboard';
+// import { LoadingController } from '../../node_modules/ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,11 +17,11 @@ import { CreatePage } from '../pages/create/create';
 import { ResourcePage } from '../pages/resources/resources';
 import { DicePage } from '../pages/dice/dice';
 
-import { HttpModule } from '@angular/http';
 import { Repository } from '../providers/repository';
 import { Guid } from '../providers/guid';
 import { FormsModule } from '@angular/forms';
 import { Autosize } from '../providers/autosize';
+import { HttpService } from '../providers/http-service';
 
 @NgModule({
   declarations: [
@@ -37,12 +39,13 @@ import { Autosize } from '../providers/autosize';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
+    // LoadingController,
     IonicModule.forRoot(MyApp, {
       scrollAssist: false,
       autoFocusAssist: false
   }),
-    HttpModule,
   ],
 
   bootstrap: [IonicApp],
@@ -63,6 +66,7 @@ import { Autosize } from '../providers/autosize';
     Keyboard,
     SplashScreen,
     Guid,
+    HttpService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
