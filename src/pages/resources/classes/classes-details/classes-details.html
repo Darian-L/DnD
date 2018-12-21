@@ -1,0 +1,39 @@
+<ion-header class="headerBackground">
+    <ion-navbar>
+      <ion-title padding>{{ response?.name }}</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+    <h6>Hit Die</h6>
+    <ion-item>d{{ response?.hit_die }}</ion-item>
+    <br/>
+
+    <ion-list>
+        <h6>Choose {{ response?.proficiency_choices[0].choose }} proficiencies from:</h6>
+      <ion-item *ngFor="let option of response?.proficiency_choices[0].from; let i = index">
+        <div>{{ option.name }}</div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <h6>Proficiencies:</h6>
+      <ion-item *ngFor="let proficiency of response?.proficiencies; let i = index">
+        <div>{{ proficiency.name }}</div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <h6>Saving Throws:</h6>
+      <ion-item *ngFor="let ST of response?.saving_throws; let i = index">
+        <div>{{ ST.name }}</div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <h6>Subclasses:</h6>
+      <ion-item *ngFor="let subclass of response?.subclasses; let i = index">
+        <div>{{ subclass.name }}</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>

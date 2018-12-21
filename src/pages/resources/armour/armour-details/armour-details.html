@@ -1,0 +1,30 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>{{ response?.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6 class="content">Category</h6>
+  <div>{{ response?.armor_category }}</div>
+
+  <h6>AC</h6>
+  <span>{{ response?.armor_class.base }}</span>
+  <span *ngIf="response?.armor_category == 'Medium'">
+    + max Dex modifier: {{ response?.armor_class.max_bonus }}
+  </span>
+  <span *ngIf="response?.armor_category == 'Heavy'">+ max Dex modifier: 0</span>
+  <span *ngIf="response?.armor_category == 'Light'">+ Dex</span>
+
+  <h6>Strength Requirement?</h6>
+  <div>{{ response?.str_minimum }}</div>
+
+  <h6>Stealth Disadvantage?</h6>
+  <div>{{ response?.stealth_disadvantage }}</div>
+
+  <h6>Weight</h6>
+  <div>{{ response?.weight }}lb</div>
+
+  <h6>Cost</h6>
+  <div>{{ response?.cost.quantity }}{{ response?.cost.unit }}</div>
+</ion-content>

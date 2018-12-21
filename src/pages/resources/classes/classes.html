@@ -1,0 +1,13 @@
+<ion-header class="headerBackground">
+    <ion-navbar>
+      <ion-title padding>Classes</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+    <ion-list>
+      <ion-item *ngFor="let class of response?.results; let i = index"  (click)="pushClassesDetails(i)">
+        <div>{{ class.name }}</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>

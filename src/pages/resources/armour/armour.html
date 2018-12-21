@@ -1,0 +1,13 @@
+<ion-header class="headerBackground">
+    <ion-navbar>
+      <ion-title padding>Armour</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+    <ion-list>
+      <ion-item *ngFor="let armour of response?.results | slice:37:50; let i = index"  (click)="pushArmourDetails(i)">
+        <div>{{ armour.name }}</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>

@@ -1,0 +1,39 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>{{ response?.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6>Description:</h6>
+  <div>{{ response?.desc }}</div>
+
+  <h6>Ability Bonuses:</h6>
+  <div>Str: +{{ response?.ability_bonuses[0] }}</div>
+  <div>Dex: +{{ response?.ability_bonuses[1] }}</div>
+  <div>Con: +{{ response?.ability_bonuses[2] }}</div>
+  <div>Int: +{{ response?.ability_bonuses[3] }}</div>
+  <div>Wis: +{{ response?.ability_bonuses[4] }}</div>
+  <div>Cha: +{{ response?.ability_bonuses[5] }}</div>
+  <br/>
+
+  <h6>Starting Proficiencies:</h6>
+    <ion-item>
+      <div>May have bonus proficiencies</div>
+    </ion-item>
+    <br/>
+
+  <ion-list *ngIf="response?.racial_trait_options">
+      <h6>Choose a cantrip from:</h6>
+    <ion-item *ngFor="let option of response?.racial_trait_options.from; let i = index">
+      <div>{{ option.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+      <h6>Racial Traits</h6>
+    <ion-item *ngFor="let trait of response?.racial_traits; let i = index">
+      <div>{{ trait.name }}</div>
+    </ion-item>
+  </ion-list>
+</ion-content>

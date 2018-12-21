@@ -1,0 +1,24 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>{{ response?.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6 class="content">Category:</h6>
+  <div>{{ response?.equipment_category }}</div>
+
+  <div *ngIf="response?.desc"><br/>
+    <ion-list>
+      <h6>Description:</h6>
+    <div *ngFor="let description of response?.desc; let i = index">
+      {{ description }}
+    </div>
+  </ion-list></div>
+
+  <h6>Weight:</h6>
+  <div>{{ response?.weight }}lb</div>
+
+  <h6>Cost:</h6>
+  <div>{{ response?.cost.quantity }}{{ response?.cost.unit }}</div>
+</ion-content>

@@ -1,0 +1,13 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>Weapons</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+      <ion-item *ngFor="let weapon of response?.results | slice:0:37; let i = index"  (click)="pushWeaponsDetails(i)">
+        <div>{{ weapon.name }}</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>

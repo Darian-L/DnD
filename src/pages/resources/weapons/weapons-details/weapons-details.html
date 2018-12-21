@@ -1,0 +1,24 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>{{ response?.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6 class="content">Category</h6>
+  <div>{{ response?.category_range }}</div>
+
+  <h6>Damage</h6>
+  <div>{{ response?.damage.dice_count }}d{{ response?.damage.dice_value }} {{ response?.damage.damage_type.name }} damage</div>
+
+  <h6>Properties</h6>
+    <div *ngFor="let property of response?.properties; let i = index">
+      <li>{{ property.name }}</li>
+    </div>
+
+  <h6>Weight</h6>
+  <div>{{ response?.weight }}lb</div>
+
+  <h6>Cost</h6>
+  <div>{{ response?.cost.quantity }}{{ response?.cost.unit }}</div>
+</ion-content>

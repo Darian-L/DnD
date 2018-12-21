@@ -5,14 +5,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <form [formGroup]="newCharacterForm">
     <ion-item>
       <ion-label color="dark">Name:</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
 
-    <div>
+    <div class="spacer">
       <ion-segment
         [(ngModel)]="segments"
         [ngModelOptions]="{ standalone: true }"
@@ -29,7 +29,7 @@
       </ion-segment>
     </div>
 
-    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+    <ion-slides padding #slider (ionSlideWillChange)="moveButton($event)">
       <ion-slide>
         <ion-item>
           <ion-label color="dark">Race:</ion-label>

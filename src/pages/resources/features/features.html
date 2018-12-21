@@ -1,0 +1,139 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>Class Features</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h5 (click)="show(0)" class="heading">
+    Barbarian
+    <ion-icon *ngIf="class[0] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[0] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[0] == true">
+    <ion-item *ngFor="let features of response?.results | slice:0:24; let i = index"  (click)="pushBarbarianFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(1)" class="heading">
+    Bard
+  <ion-icon *ngIf="class[1] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[1] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[1] == true">
+    <ion-item *ngFor="let features of response?.results | slice:24:70; let i = index"  (click)="pushBardFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(2)" class="heading">
+    Cleric
+    <ion-icon *ngIf="class[2] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[2] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[2] == true">
+    <ion-item *ngFor="let features of response?.results | slice:70:99; let i = index"  (click)="pushClericFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(3)" class="heading">
+    Druid
+    <ion-icon *ngIf="class[3] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[3] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[3] == true">
+    <ion-item *ngFor="let features of response?.results | slice:99:130; let i = index"  (click)="pushDruidFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(4)" class="heading">
+    Fighter
+    <ion-icon *ngIf="class[4] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[4] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[4] == true">
+    <ion-item *ngFor="let features of response?.results | slice:130:159; let i = index"  (click)="pushFigtherFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(5)" class="heading">
+    Monk
+    <ion-icon *ngIf="class[5] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[5] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[5] == true">
+    <ion-item *ngFor="let features of response?.results | slice:159:190; let i = index"  (click)="pushMonkFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(6)" class="heading">
+    Paladin
+    <ion-icon *ngIf="class[6] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[6] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[6] == true">
+    <ion-item *ngFor="let features of response?.results | slice:190:219; let i = index"  (click)="pushPaladinFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(7)" class="heading">
+    Ranger
+    <ion-icon *ngIf="class[7] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[7] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[7] == true">
+    <ion-item *ngFor="let features of response?.results | slice:219:259; let i = index"  (click)="pushRangerFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(8)" class="heading">
+    Rogue
+    <ion-icon *ngIf="class[8] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[8] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[8] == true">
+    <ion-item *ngFor="let features of response?.results | slice:259:302; let i = index"  (click)="pushRogueFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(9)" class="heading">
+    Sorceror
+    <ion-icon *ngIf="class[9] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[9] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[9] == true">
+    <ion-item *ngFor="let features of response?.results | slice:302:339; let i = index"  (click)="pushSorcerorFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(10)" class="heading">
+    Warlock
+    <ion-icon *ngIf="class[10] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[10] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[10] == true">
+    <ion-item *ngFor="let features of response?.results | slice:339:399; let i = index"  (click)="pushWarlockFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(11)" class="heading">
+    Wizard
+    <ion-icon *ngIf="class[11] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[11] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </h5>
+    <ion-list  *ngIf="class[11] == true">
+    <ion-item *ngFor="let features of response?.results | slice:399:414; let i = index"  (click)="pushWizardFeatures(i)">
+      <div>{{ features.name }}</div>
+    </ion-item>
+  </ion-list>
+</ion-content>

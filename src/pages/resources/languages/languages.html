@@ -1,0 +1,429 @@
+<ion-header>
+  <ion-navbar class="headerBackground">
+    <ion-title> Languages </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(0)">
+      Abyssal
+      <ion-icon *ngIf="cards[0] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[0] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[0] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Demons, chaotic evil outsiders</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Infernal</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(1)">
+      Aquan
+      <ion-icon *ngIf="cards[1] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[1] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[1] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Water-based creatures</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Elven</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(2)">
+      Auran
+      <ion-icon *ngIf="cards[2] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[2] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[2] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>	Air-based creatures</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Draconic</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(3)">
+      Celestial
+      <ion-icon *ngIf="cards[3] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[3] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[3] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Celestials (angels, devas)</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Celestial</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(4)">
+      Common
+      <ion-icon *ngIf="cards[4] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[4] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[4] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Humans, halflings, half-elves, half-orcs</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Common</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(5)">
+      Deep Speech
+      <ion-icon *ngIf="cards[5] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[5] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[5] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Mind flayers, beholders</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>None</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(6)">
+      Draconic
+      <ion-icon *ngIf="cards[6] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[6] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[6] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Kobolds, troglodytes, lizardfolk, dragons, dragonborn</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Draconic</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(7)">
+      Druidic
+      <ion-icon *ngIf="cards[7] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[7] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[7] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Druids (only)</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Druidic</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(8)">
+      Dwarvish
+      <ion-icon *ngIf="cards[8] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[8] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[8] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Dwarves</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Dwarvish</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(9)">
+      Elvish
+      <ion-icon *ngIf="cards[9] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[9] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[9] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Elves</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Elvish</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(10)">
+      Giant
+      <ion-icon *ngIf="cards[10] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[10] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[10] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Ogres, giants</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Giant</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(11)">
+      Gnomish
+      <ion-icon *ngIf="cards[11] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[11] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[11] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Gnomes</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Dwarvish</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(12)">
+      Goblin
+      <ion-icon *ngIf="cards[12] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[12] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[12] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Goblinoids, hobgoblins, bugbears</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Dwarvish</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(13)">
+      Gnoll
+      <ion-icon *ngIf="cards[13] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[13] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[13] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Gnolls</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Common</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(14)">
+      Halfling
+      <ion-icon *ngIf="cards[14] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[14] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[14] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Halflings</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Common</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(15)">
+      Ignan
+      <ion-icon *ngIf="cards[15] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[15] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[15] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Fire-based creatures</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Draconic</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(16)">
+      Infernal
+      <ion-icon *ngIf="cards[16] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[16] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[16] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Devils, Tieflings</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Infernal</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(17)">
+      Orc
+      <ion-icon *ngIf="cards[17] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[17] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[17] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Orcs</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Dwarvish</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardBackground">
+    <ion-card-header class="headers" (click)="show(18)">
+      Primordial
+      <ion-icon *ngIf="cards[18] == false" class="icons" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="cards[18] == true" class="icons" name="arrow-dropright"></ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngIf="cards[18] == true">
+      <ion-row>
+        <ion-col col-3>Typical Speakers:</ion-col>
+        <ion-col>Elementals</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>Script:</ion-col>
+        <ion-col>Dwarvish</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card class="cardBackground">
+      <ion-card-header class="headers" (click)="show(19)">
+        Sylvan
+        <ion-icon *ngIf="cards[19] == false" class="icons" name="arrow-dropdown"></ion-icon>
+        <ion-icon *ngIf="cards[19] == true" class="icons" name="arrow-dropright"></ion-icon>
+      </ion-card-header>
+      <ion-card-content *ngIf="cards[19] == true">
+        <ion-row>
+          <ion-col col-3>Typical Speakers:</ion-col>
+          <ion-col>Fey creatures (dryads, brownies, leprechauns)</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-3>Script:</ion-col>
+          <ion-col>Elvish</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardBackground">
+      <ion-card-header class="headers" (click)="show(20)">
+        Terran
+        <ion-icon *ngIf="cards[20] == false" class="icons" name="arrow-dropdown"></ion-icon>
+        <ion-icon *ngIf="cards[20] == true" class="icons" name="arrow-dropright"></ion-icon>
+      </ion-card-header>
+      <ion-card-content *ngIf="cards[20] == true">
+        <ion-row>
+          <ion-col col-3>Typical Speakers:</ion-col>
+          <ion-col>Xorns and other earth-based creatures</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-3>Script:</ion-col>
+          <ion-col>Dwarven</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardBackground">
+      <ion-card-header class="headers" (click)="show(21)">
+        Undercommon
+        <ion-icon *ngIf="cards[21] == false" class="icons" name="arrow-dropdown"></ion-icon>
+        <ion-icon *ngIf="cards[21] == true" class="icons" name="arrow-dropright"></ion-icon>
+      </ion-card-header>
+      <ion-card-content *ngIf="cards[21] == true">
+        <ion-row>
+          <ion-col col-3>Typical Speakers:</ion-col>
+          <ion-col>Drow, Underdark traders</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-3>Script:</ion-col>
+          <ion-col>Elvish</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>

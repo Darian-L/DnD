@@ -1,0 +1,13 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>Races</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let race of response?.results; let i = index"  (click)="pushRacesDetails(i)">
+      <div>{{ race.name }}</div>
+    </ion-item>
+  </ion-list>
+</ion-content>

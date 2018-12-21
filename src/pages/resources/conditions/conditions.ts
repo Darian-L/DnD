@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HomePage } from '../home/home';
-
 
 @Component({
   selector: 'page-conditions',
@@ -11,12 +9,11 @@ export class ConditionsPage {
   public cards;
 
   constructor() {
-
     this.cards = [
       false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
     ]
-
   }
+
   show(index) {
     if (this.cards[index] == true) {
        this.cards[index] = false;

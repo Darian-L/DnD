@@ -1,0 +1,74 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>{{ response?.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6>Speed:</h6>
+  <div>{{ response?.speed }}</div>
+
+  <h6>Ability Bonuses:</h6>
+  <div>Str: +{{ response?.ability_bonuses[0] }}</div>
+  <div>Dex: +{{ response?.ability_bonuses[1] }}</div>
+  <div>Con: +{{ response?.ability_bonuses[2] }}</div>
+  <div>Int: +{{ response?.ability_bonuses[3] }}</div>
+  <div>Wis: +{{ response?.ability_bonuses[4] }}</div>
+  <div>Cha: +{{ response?.ability_bonuses[5] }}</div>
+
+  <h6>Alignment:</h6>
+  <div>{{ response?.alignment }}</div>
+
+  <h6>Age:</h6>
+  <div>{{ response?.age }}</div>
+
+  <h6>Size:</h6>
+  <div>{{ response?.size }}</div>
+
+  <h6>Average Height:</h6>
+  <div>{{ response?.size_description }}</div>
+  <br/>
+
+  <ion-list>
+      <h6>Starting Proficiencies:</h6>
+    <ion-item *ngFor="let proficiency of response?.starting_proficiencies; let i = index">
+      <div>{{ proficiency.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="response?.starting_proficiency_options">
+      <h6>Choose {{ response?.starting_proficiency_options.choose }} proficiencies from:</h6>
+    <ion-item *ngFor="let option of response?.starting_proficiency_options.from; let i = index">
+      <div>{{ option.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+      <h6>Languages:</h6>
+    <ion-item *ngFor="let language of response?.languages; let i = index">
+      <div>{{ language.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h6>Language Description:</h6>
+  <div>{{ response?.language_desc }}</div>
+  <br/>
+
+  <div *ngIf="response?.language_options"><h6>Extra Languages:</h6>
+  <div>1</div></div>
+  <br/>
+
+  <ion-list>
+      <h6>Traits:</h6>
+    <ion-item *ngFor="let trait of response?.traits; let i = index">
+      <div>{{ trait.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+      <h6>Subraces:</h6>
+    <ion-item *ngFor="let subrace of response?.subraces; let i = index">
+      <div>{{ subrace.name }}</div>
+    </ion-item>
+  </ion-list>
+</ion-content>
