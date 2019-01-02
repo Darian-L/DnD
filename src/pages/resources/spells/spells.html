@@ -1,0 +1,249 @@
+<ion-header class="headerBackground">
+  <ion-navbar>
+    <ion-title padding>Spells</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h5 (click)="show(0)" class="heading">
+    A
+    <ion-icon *ngIf="class[0] == false" class="icons" name="arrow-dropdown"></ion-icon>
+    <ion-icon *ngIf="class[0] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[0] == true">
+    <ion-item *ngFor="let spell of response?.results | slice:0:21; let i = index"  (click)="pushASpells(i)">
+      <div>{{ spell.name }}</div>
+    </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(1)" class="heading">
+    B
+  <ion-icon *ngIf="class[1] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[1] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[1] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:21:35; let i = index"  (click)="pushBSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(2)" class="heading">
+    C
+  <ion-icon *ngIf="class[2] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[2] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[2] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:35:70; let i = index"  (click)="pushCSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(3)" class="heading">
+    D
+  <ion-icon *ngIf="class[3] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[3] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[3] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:70:94; let i = index"  (click)="pushDSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(4)" class="heading">
+    E
+  <ion-icon *ngIf="class[4] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[4] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[4] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:94:103; let i = index"  (click)="pushESpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(5)" class="heading">
+    F
+  <ion-icon *ngIf="class[5] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[5] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[5] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:103:131; let i = index"  (click)="pushFSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(6)" class="heading">
+    G
+  <ion-icon *ngIf="class[6] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[6] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[6] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:131:148; let i = index"  (click)="pushGSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(7)" class="heading">
+    H
+  <ion-icon *ngIf="class[7] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[7] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[7] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:148:164; let i = index"  (click)="pushHSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(8)" class="heading">
+    I
+  <ion-icon *ngIf="class[8] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[8] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[8] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:164:174; let i = index"  (click)="pushISpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(9)" class="heading">
+    J
+  <ion-icon *ngIf="class[9] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[9] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[9] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:174:175; let i = index"  (click)="pushJSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(10)" class="heading">
+    K
+  <ion-icon *ngIf="class[10] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[10] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[10] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:175:176; let i = index"  (click)="pushKSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(11)" class="heading">
+    L
+  <ion-icon *ngIf="class[11] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[11] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[11] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:176:185; let i = index"  (click)="pushLSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(12)" class="heading">
+    M
+  <ion-icon *ngIf="class[12] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[12] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[12] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:185:212; let i = index"  (click)="pushMSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(13)" class="heading">
+    N
+  <ion-icon *ngIf="class[13] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[13] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[13] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:212:213; let i = index"  (click)="pushNSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(14)" class="heading">
+    P
+  <ion-icon *ngIf="class[14] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[14] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[14] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:213:237; let i = index"  (click)="pushPSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(15)" class="heading">
+    R
+  <ion-icon *ngIf="class[15] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[15] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[15] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:237:249; let i = index"  (click)="pushRSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(16)" class="heading">
+    S
+  <ion-icon *ngIf="class[16] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[16] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[16] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:249:286; let i = index"  (click)="pushSSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(17)" class="heading">
+    T
+  <ion-icon *ngIf="class[17] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[17] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[17] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:286:301; let i = index"  (click)="pushTSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(18)" class="heading">
+    U
+  <ion-icon *ngIf="class[18] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[18] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[18] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:301:302; let i = index"  (click)="pushUSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(19)" class="heading">
+    V
+  <ion-icon *ngIf="class[19] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[19] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[19] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:302:304; let i = index"  (click)="pushVSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(20)" class="heading">
+    W
+  <ion-icon *ngIf="class[20] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[20] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[20] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:304:318; let i = index"  (click)="pushWSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+  </ion-list>
+
+  <h5 (click)="show(21)" class="heading">
+    Z
+  <ion-icon *ngIf="class[21] == false" class="icons" name="arrow-dropdown"></ion-icon>
+  <ion-icon *ngIf="class[21] == true" class="icons" name="arrow-dropright"></ion-icon>
+  </h5>
+  <ion-list  *ngIf="class[21] == true">
+  <ion-item *ngFor="let spell of response?.results | slice:318:319; let i = index"  (click)="pushZSpells(i)">
+    <div>{{ spell.name }}</div>
+  </ion-item>
+</ion-list>
+</ion-content>

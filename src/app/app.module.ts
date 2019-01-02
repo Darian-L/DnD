@@ -26,6 +26,8 @@ import { LanguagesPage } from '../pages/resources/languages/languages';
 import { RacesPage } from '../pages/resources/races/races';
 import { RacesDetailsPage } from '../pages/resources/races/races-details/races-details'
 import { SkillsPage } from '../pages/resources/skills/skills';
+import { SpellsPage } from '../pages/resources/spells/spells';
+import { SpellsDetailsPage } from '../pages/resources/spells/spells-details/spells-details'
 import { SubracesPage } from '../pages/resources/subraces/subraces';
 import { SubracesDetailsPage } from '../pages/resources/subraces/subraces-details/subraces-details'
 import { WeaponsPage } from '../pages/resources/weapons/weapons';
@@ -69,6 +71,8 @@ import { HttpService } from '../providers/http-service';
     RacesPage,
     RacesDetailsPage,
     SkillsPage,
+    SpellsPage,
+    SpellsDetailsPage,
     SubracesPage,
     SubracesDetailsPage,
     WeaponsPage,
@@ -112,6 +116,8 @@ import { HttpService } from '../providers/http-service';
     RacesPage,
     RacesDetailsPage,
     SkillsPage,
+    SpellsPage,
+    SpellsDetailsPage,
     SubracesPage,
     SubracesDetailsPage,
     WeaponsPage,

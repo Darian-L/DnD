@@ -11,6 +11,7 @@ import { LanguagesPage } from "../../pages/resources/languages/languages";
 import { RacesPage } from "../../pages/resources/races/races";
 import { SubracesPage } from "../../pages/resources/subraces/subraces";
 import { SkillsPage } from "../../pages/resources/skills/skills";
+import { SpellsPage } from "../../pages/resources/spells/spells";
 import { WeaponsPage } from "../../pages/resources/weapons/weapons";
 import { WeaponPropertiesPage } from "../../pages/resources/weapon-properties/weapon-properties";
 
@@ -73,6 +74,11 @@ export class ResourcePage {
   pushSkillsPage() {
     this.navCtrl.push(SkillsPage);
     console.log("Skills pushed");
+  }
+
+  pushSpellsPage() {
+    this.navCtrl.push(SpellsPage);
+    console.log("Spells pushed");
   }
 
   pushSubracesPage() {
