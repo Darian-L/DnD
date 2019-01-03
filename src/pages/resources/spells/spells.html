@@ -1,10 +1,25 @@
 <ion-header class="headerBackground">
   <ion-navbar>
     <ion-title padding>Spells</ion-title>
+    <ion-buttons end *ngIf="isFavourites"><ion-icon class="trashIcon" name="trash"></ion-icon></ion-buttons>
+    <ion-buttons end *ngIf="isFavourites"><ion-checkbox [(ngModel)]="deleting" class="toggle"></ion-checkbox></ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+<div class="spacer">
+  <ion-segment [(ngModel)]="segments">
+    <ion-segment-button value="0" (click)="toggleAll()">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="1" (click)="toggleFavourites()">
+      Favourites
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+  <div [ngSwitch]="segments">
+  <ion-list *ngSwitchCase="'0'">
   <h5 (click)="show(0)" class="heading">
     A
     <ion-icon *ngIf="class[0] == false" class="icons" name="arrow-dropdown"></ion-icon>
@@ -268,4 +283,21 @@
     <div>{{ spell.name }}</div>
   </ion-item>
 </ion-list>
+</ion-list>
+
+<ion-list *ngSwitchCase="'1'">
+  <ion-list>
+    <ion-row padding>
+      <ion-col>Sort By:</ion-col>
+      <ion-col><ion-checkbox [(ngModel)]="alphabetical" (click)="sortAlpha()" [disabled]="alphabetical" class="sortCheckbox"></ion-checkbox> A-Z</ion-col>
+      <ion-col><ion-checkbox [(ngModel)]="level" (click)="sortLevels()" [disabled]="level" class="sortCheckbox"></ion-checkbox> Level</ion-col>
+    </ion-row>
+      <ion-item *ngFor="let favourite of favourites; let i = index">
+        <ion-row>
+        <ion-col (click)="pushFavourite(i)"><span>{{ favourite.name }}</span><span>, Level: {{ favourite.level }}</span></ion-col>
+        <ion-col col-1 *ngIf="deleting"><ion-icon class="icons" name="close" (click)="removeFavourite(i)"></ion-icon></ion-col>
+      </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-list></div>
 </ion-content>

@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { HttpService } from "../../../providers/http-service";
 import { SpellsDetailsPage } from "../spells/spells-details/spells-details"
+import { Repository } from "../../../providers/repository";
 
 @Component({
   selector: "page-spells",
@@ -11,11 +12,18 @@ export class SpellsPage {
 
   public response
   public class;
+  public segments;
+  public favourites;
+  public isFavourites;
+  public deleting
+  public alphabetical
+  public level
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private appRepo: Repository,
   ) {
     this.httpService.request("spells", succeed => {
       this.response = succeed;
@@ -24,6 +32,40 @@ export class SpellsPage {
     this.class = [
       false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
     ]
+
+    this.segments = "0";
+  }
+
+  ionViewWillEnter() {
+    this.favourites = JSON.parse(this.appRepo.load("favourites"));
+    console.log(this.favourites);
+    this.alphabetical = true
+    this.level = false
+    this.deleting = false
+    this.favourites.sort(function(a, b) {return a.index-b.index});
+    this.appRepo.save("favourites", JSON.stringify(this.favourites));
+  }
+
+  sortAlpha() {
+      this.alphabetical = true;
+      this.level = false;
+      this.favourites.sort(function(a, b) {return a.index-b.index});
+      this.appRepo.save("favourites", JSON.stringify(this.favourites));
+  }
+
+  sortLevels() {
+      this.level = true;
+      this.alphabetical = false;
+      this.favourites.sort(function(a, b) {return a.level-b.level});
+      this.appRepo.save("favourites", JSON.stringify(this.favourites));
+  }
+
+  toggleFavourites() {
+    this.isFavourites = true
+  }
+
+  toggleAll() {
+    this.isFavourites = false
   }
 
   show(number) {
@@ -33,6 +75,18 @@ export class SpellsPage {
       this.class[number] = true;
     }
     console.log("toggled", this.class[number])
+  }
+
+  removeFavourite(i) {
+    console.log(i)
+    this.favourites.splice(i, 1);
+    this.favourites.sort(function(a, b) {return a.index-b.index});
+    this.appRepo.save("favourites", JSON.stringify(this.favourites));
+  }
+
+  pushFavourite(i) {
+  this.navCtrl.push(SpellsDetailsPage, { index: this.favourites[i].index });
+  console.log("favourite")
   }
 
   pushASpells(index){
