@@ -5,10 +5,12 @@ page-resources {
 
   .resourceButtons {
     margin: auto;
-    width: 50%;
+    width: 100%;
     text-align: center;
-    margin-bottom: 10px;
-    margin-left: 25%;
-    margin-right: 25%;
+    height: 95%
+  }
+
+  .row {
+    height: 14%
   }
 }
