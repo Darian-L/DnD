@@ -68,6 +68,15 @@ export class SpellsPage {
     this.isFavourites = false
   }
 
+  toggleDeleting() {
+    if(this.deleting == false) {
+      this.deleting = true
+    } else {
+      this.deleting = false
+    };
+    console.log(this.deleting)
+  }
+
   show(number) {
     if (this.class[number] == true) {
        this.class[number] = false;
@@ -78,7 +87,6 @@ export class SpellsPage {
   }
 
   removeFavourite(i) {
-    console.log(i)
     this.favourites.splice(i, 1);
     this.favourites.sort(function(a, b) {return a.index-b.index});
     this.appRepo.save("favourites", JSON.stringify(this.favourites));

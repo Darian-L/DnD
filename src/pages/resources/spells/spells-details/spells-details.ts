@@ -12,6 +12,7 @@ export class SpellsDetailsPage {
   private index;
   private favourites;
   private spell;
+  public isFavourited = false;
 
   constructor(
     public navCtrl: NavController,
@@ -29,6 +30,9 @@ export class SpellsDetailsPage {
 
     this.favourites = JSON.parse(this.appRepo.load("favourites"));
     console.log(this.favourites);
+
+    let favouritedlist = this.favourites.filter(x => x.index === this.index);
+    if(favouritedlist.length > 0) {this.isFavourited = true}
   }
 
   favouriteButton() {
@@ -50,9 +54,12 @@ export class SpellsDetailsPage {
       this.favourites.sort(function(a, b) {return a.index-b.index})
       this.appRepo.save("favourites", JSON.stringify(this.favourites));
       console.log(this.favourites);
+
+      this.isFavourited = true;
+
       let toast = this.toastCtrl.create({
         message: "Added to Favourites",
-        duration: 2000,
+        duration: 1000,
         position: "bottom",
         cssClass: "toast"
       });
@@ -64,7 +71,7 @@ export class SpellsDetailsPage {
         console.log(this.favourites);
         let toast = this.toastCtrl.create({
           message: "Added to Favourites",
-          duration: 2000,
+          duration: 1000,
           position: "bottom",
           cssClass: "toast"
         });
@@ -75,13 +82,35 @@ export class SpellsDetailsPage {
       arr.push(this.spell);
       this.appRepo.save("favourites", JSON.stringify(arr));
       console.log("First favourite")
+
+      this.isFavourited = true;
+
       let toast = this.toastCtrl.create({
         message: "Added to Favourites",
-        duration: 2000,
+        duration: 1000,
         position: "bottom",
         cssClass: "toast"
       });
       toast.present();
     };
+  }
+
+  unFavouriteButton() {
+    let id = this.favourites.findIndex(x => x.name == this.response.name);
+    console.log(id);
+
+    this.favourites.splice(id, 1);
+    this.favourites.sort(function(a, b) {return a.index-b.index});
+    this.appRepo.save("favourites", JSON.stringify(this.favourites));
+
+    this.isFavourited = false;
+
+    let toast = this.toastCtrl.create({
+      message: "Removed from Favourites",
+      duration: 1000,
+      position: "bottom",
+      cssClass: "toast"
+    });
+    toast.present();
   }
 }

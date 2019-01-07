@@ -1,7 +1,8 @@
 <ion-header class="headerBackground">
   <ion-navbar>
     <ion-title padding>{{ response?.name }}</ion-title>
-    <ion-buttons end><button class="transparent"><ion-icon class="favouriteIcon" name="star" (click)="favouriteButton()"></ion-icon></button></ion-buttons>
+    <ion-buttons end *ngIf=!isFavourited><button class="transparent"><ion-icon class="favouriteIcon" name="star-outline" (click)="favouriteButton()"></ion-icon></button></ion-buttons>
+    <ion-buttons end *ngIf=isFavourited><button class="transparent"><ion-icon class="favouriteIcon" name="star" (click)="unFavouriteButton()"></ion-icon></button></ion-buttons>
   </ion-navbar>
 </ion-header>
 

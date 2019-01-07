@@ -1,8 +1,10 @@
 <ion-header class="headerBackground">
   <ion-navbar>
     <ion-title padding>Spells</ion-title>
-    <ion-buttons end *ngIf="isFavourites"><ion-icon class="trashIcon" name="trash"></ion-icon></ion-buttons>
-    <ion-buttons end *ngIf="isFavourites"><ion-checkbox [(ngModel)]="deleting" class="toggle"></ion-checkbox></ion-buttons>
+    <ion-buttons end *ngIf="isFavourites" (click)="toggleDeleting()"><button class="transparent">
+      <ion-icon class="toggleOff" name="trash" *ngIf="deleting"></ion-icon>
+      <ion-icon class="toggleOn" name="trash" *ngIf="!deleting"></ion-icon>
+    </button></ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -295,7 +297,7 @@
       <ion-item *ngFor="let favourite of favourites; let i = index">
         <ion-row>
         <ion-col (click)="pushFavourite(i)"><span>{{ favourite.name }}</span><span>, Level: {{ favourite.level }}</span></ion-col>
-        <ion-col col-1 *ngIf="deleting"><ion-icon class="icons" name="close" (click)="removeFavourite(i)"></ion-icon></ion-col>
+        <ion-col col-1 *ngIf="deleting"><ion-icon class="icons" name="trash" (click)="removeFavourite(i)"></ion-icon></ion-col>
       </ion-row>
       </ion-item>
     </ion-list>

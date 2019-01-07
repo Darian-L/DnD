@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { HttpService } from "../../../providers/http-service";
-import { WeaponPropertiesDetailsPage } from "./weapon-properties-details/weapon-properties-details";
 
 @Component({
   selector: "page-weapon-properties",

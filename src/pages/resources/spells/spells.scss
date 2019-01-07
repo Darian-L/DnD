@@ -14,15 +14,16 @@ page-spells {
   margin-top: 8px;
 }
 
-.trashIcon {
+.toggleOff {
   color: #ff8d22;
-
+  margin-right: 15px;
   font-size: 25px;
 }
 
-.toggle {
+.toggleOn {
+  color: white;
   margin-right: 15px;
-  vertical-align: middle;
+  font-size: 25px;
 }
 
 .sortCheckbox {

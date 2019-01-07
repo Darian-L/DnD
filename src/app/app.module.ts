@@ -33,7 +33,6 @@ import { SubracesDetailsPage } from '../pages/resources/subraces/subraces-detail
 import { WeaponsPage } from '../pages/resources/weapons/weapons';
 import { WeaponsDetailsPage } from '../pages/resources/weapons/weapons-details/weapons-details';
 import { WeaponPropertiesPage } from '../pages/resources/weapon-properties/weapon-properties';
-import { WeaponPropertiesDetailsPage } from '../pages/resources/weapon-properties/weapon-properties-details/weapon-properties-details';
 import { CreatePage } from '../pages/create/create';
 import { ResourcePage } from '../pages/resources/resources';
 import { DicePage } from '../pages/dice/dice';
@@ -78,7 +77,6 @@ import { HttpService } from '../providers/http-service';
     WeaponsPage,
     WeaponsDetailsPage,
     WeaponPropertiesPage,
-    WeaponPropertiesDetailsPage,
 
   ],
   imports: [
@@ -123,7 +121,6 @@ import { HttpService } from '../providers/http-service';
     WeaponsPage,
     WeaponsDetailsPage,
     WeaponPropertiesPage,
-    WeaponPropertiesDetailsPage,
   ],
   providers: [
     Repository,
